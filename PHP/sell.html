@@ -12,7 +12,7 @@
     <a href="About.php">About Us</a>
     <a href="product.php"> Buy Products</a>
     <a href="sell.html">Sell Products</a>
-    <a href="history.php">History Items</a>
+    <a href="history.html">History Items</a>
     <a href="Login.php">Login</a>
     <a href="Register.php">Register</a>
     <form class="searchbar" action="">
