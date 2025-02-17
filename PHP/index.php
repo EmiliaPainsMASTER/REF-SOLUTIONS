@@ -13,11 +13,18 @@ $productArray = array("cisco_ucs","dell_poweredge","hpe_proliant","ibm_power_sys
 <body>
     <div class="gridContainer">
         <header class="headerGrid">
-        <div class="topnav">
-        <a href="index.php">Home</a>
-        <a href="search.php">Search</a>
-        <a href="product.php">Products</a>
-    </div>
+            <div class="topnav">
+                <a href="index.php">Home</a>
+                <a href="About.php">About Us</a>
+                <a href="product.php"> Buy Products</a>
+                <a href="sell.html">Sell Products</a>
+                <a href="history.php">History Items</a>
+                <a href="Login.php">Login</a>
+                <a href="Register.php">Register</a>
+                <form class="searchbar" action="">
+                    <input type="text" placeholder="Search..">
+                </form>
+            </div>
         </header>
         <section class="topGrid">
             <h2>Our Top Five best sellers!</h2>
