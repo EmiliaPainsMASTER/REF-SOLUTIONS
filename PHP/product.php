@@ -16,7 +16,7 @@
         <input type="text" placeholder="Search..">
     </form>
 </div>
-    <img src="img/lenovo_thinksystem.jpg">
+   <!-- <img src="img/lenovo_thinksystem.jpg">
     <p>The Lenovo ThinkSystem ST50 V2 single-socket tower server is an entry level server ideal for small businesses, home offices, retail, educational institutions and branch offices. The server is based on the Intel Xeon E-2300 Series processors, formerly codenamed "Rocket Lake".<br><br>
     <h1>&euro;850</h1>
     <h3>PRODUCT INFORMATION</h3><br>
@@ -25,7 +25,36 @@
     A choice of affordable onboard SATA RAID or advanced hardware RAID redundancy offers data protection and greater system uptime.
     <br><br>
     <b>Powerful and high value</b><br>
-    An ideal first server for your growing business, remote/branch office, or retail location, the Lenovo ThinkSystem ST50 V2 enhanced performance increases productivity. The ThinkSystem ST50 V2 boasts the improved operation of the latest Intel® Xeon® E-2300 processors. With a 17% increase in performance the ThinkSystem ST50 V2 offers professional-level capabilities at an entry-level price-point. High value versus a workstation with the benefits of a resilient server.
-    </p>
+    <p>An ideal first server for your growing business, remote/branch office, or retail location, the Lenovo ThinkSystem ST50 V2 enhanced performance increases productivity. The ThinkSystem ST50 V2 boasts the improved operation of the latest Intel® Xeon® E-2300 processors. With a 17% increase in performance the ThinkSystem ST50 V2 offers professional-level capabilities at an entry-level price-point. High value versus a workstation with the benefits of a resilient server.
+    </p>-->
+    
+    
+    
+    <?php
+        $servername = "localhost"; 
+        $username = "root";        
+        $password = "";             
+        $dbname = "refsolutions";     
+
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error);
+        }
+        else
+        {
+            echo "Successfull Connected"
+        }
+
+        $sql = "SELECT * FROM Poducts"; 
+    
+    $qryResult = mysqli_query($conn, $sql)
+        while($row = mysqli_fetch_assoc($qryResult)){
+            echo "Product Name: ". $row["ProductName"]. " - Description: ". $ row["ProductDesc"]. " Price: €" . $ row["Price"]."<br>";
+        }
+    
+        mysqli_close($conn);
+    ?>
+
 </body>
 </html>
