@@ -33,7 +33,7 @@
     <?php
         $servername = "localhost"; 
         $username = "root";        
-        $password = "";             
+        $password = "password";             
         $dbname = "refsolutions";     
 
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -43,14 +43,15 @@
         }
         else
         {
-            echo "Successfull Connected"
+            echo "Successfull Connection";
+            echo " ";
         }
 
-        $sql = "SELECT * FROM Poducts"; 
+        $sql = "SELECT * FROM Products"; 
     
-    $qryResult = mysqli_query($conn, $sql)
-        while($row = mysqli_fetch_assoc($qryResult)){
-            echo "Product Name: ". $row["ProductName"]. " - Description: ". $ row["ProductDesc"]. " Price: €" . $ row["Price"]."<br>";
+    $qryResult = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($qryResult)) {
+            echo "Product Name: ". $row["ProductName"]. " - Description: ". $row["ProductDesc"]. " Price: €" . $row["Price"]."<br>";
         }
     
         mysqli_close($conn);
