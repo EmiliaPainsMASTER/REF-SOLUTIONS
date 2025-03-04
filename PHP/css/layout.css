@@ -1,0 +1,21 @@
+/* Make the body fill the entire viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Let the main content expand to fill the space */
+section {
+    text-align: center;
+    flex: 1;  /* Expands to fill available space */
+    padding: 20px;
+}
+
+/* Footer stays at the bottom */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
