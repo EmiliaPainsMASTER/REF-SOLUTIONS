@@ -8,26 +8,13 @@
     <title>About Us</title>
 </head>
 <body>
-<header class="navbar">
-    <a href="index.php">Home</a>
-    <a href="about.php">About Us</a>
-    <a href="product.php"> Buy Products</a>
-    <a href="sell.php">Sell Products</a>
-    <a href="history.php">History Items</a>
-    <a href="Login.php">Login</a>
-    <a href="Register.php">Register</a>
-    <form class="searchbar" action="">
-        <input type="text" placeholder="Search..">
-    </form>
-</header>
+<?php include 'header.php'?>
 <section>
     <h1>About Us</h1>
     <h3>Who We are</h3>
     <p>We are REF Solutions a company created for technophiles and enthusiasts alike, presently we sell servers that allow our uses to host web, email, file, and game servers</p>
 </section>
-<footer>
-    <p>&copy; <?php echo date('Y'); ?> REF Solutions.</p>
-</footer>
+<?php include 'footer.php'?>
 </body>
 </html>
 <?php

@@ -7,7 +7,7 @@ html, body {
 }
 
 /* Let the main content expand to fill the space */
-section {
+section{
     text-align: center;
     flex: 1;  /* Expands to fill available space */
     padding: 20px;
