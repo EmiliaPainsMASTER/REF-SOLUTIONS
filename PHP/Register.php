@@ -20,7 +20,7 @@
                     "fname" => $_POST['fname'],
                     "sname" => $_POST['sname'],
                     "email" => $_POST['email'],
-                    "age" => $_POST['age'],
+                    "DateofBirth" => $_POST['dob'],
                     "password" => ($_POST['password'])
                 );
 
@@ -50,8 +50,8 @@
                 <label for="sname">Surname: </label>
                 <input type="text" id="sname" name="sname" placeholder="Surname" required>
 
-                <label for="age">Age: </label>
-                <input type="date" id="age" name="age" placeholder="Age" required>
+                <label for="dob">Date of Birth: </label>
+                <input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
 
                 <label for="password">Password: </label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
