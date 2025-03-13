@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
+    <?php include 'readProductsClassObject.php'; ?>
     <section>
         <?php
         $servername = "localhost";
