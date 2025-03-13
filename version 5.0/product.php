@@ -9,12 +9,15 @@
     <?php include 'header.php'; ?>
     <section>
         <?php
-        include 'src/DBconnect.php';
+        include 'src/DBconnect.php'; // This uses PDO
+
         $sql = "SELECT * FROM products";
-        $result = mysqli_query($conn, $sql);
+        $stmt = $connection->query($sql); // Use PDO query
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all results
+
         $productA = new readProductsClassObject();
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
+        if (count($products) > 0) {
+            foreach ($products as $row) {
                 $productA->productID = $row['productID'];
                 $productA->productName = $row['productName'];
                 $productA->productPrice = $row['productPrice'];
@@ -22,8 +25,7 @@
                 $productA->productImage = $row['productImage'];
                 $productA->displayProducts();
             }
-        }
-        else{
+        } else {
             echo "0 results";
         }
         ?>
