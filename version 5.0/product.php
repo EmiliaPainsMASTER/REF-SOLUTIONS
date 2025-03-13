@@ -9,6 +9,7 @@
     <?php include 'header.php'; ?>
     <section>
         <?php
+        include 'readProductsClassObject.php';
         include 'src/DBconnect.php'; // This uses PDO
 
         $sql = "SELECT * FROM products";
@@ -18,11 +19,11 @@
         $productA = new readProductsClassObject();
         if (count($products) > 0) {
             foreach ($products as $row) {
-                $productA->productID = $row['productID'];
-                $productA->productName = $row['productName'];
-                $productA->productPrice = $row['productPrice'];
-                $productA->productDesc = $row['productDesc'];
-                $productA->productImage = $row['productImage'];
+                $productA->productID = $row['ProductID'];
+                $productA->productPrice = $row['Price'];
+                $productA->productImage = $row['Image'];
+                $productA->productName = $row['ProductName'];
+                $productA->productDesc = $row['ProductDesc'];
                 $productA->displayProducts();
             }
         } else {
