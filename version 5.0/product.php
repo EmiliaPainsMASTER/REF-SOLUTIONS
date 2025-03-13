@@ -7,33 +7,25 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
-    <?php include 'readProductsClassObject.php'; ?>
     <section>
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "pass";
-        $dbname = "refsolutions";
-
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error);
+        include 'src/DBconnect.php';
+        $sql = "SELECT * FROM products";
+        $result = mysqli_query($conn, $sql);
+        $productA = new readProductsClassObject();
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $productA->productID = $row['productID'];
+                $productA->productName = $row['productName'];
+                $productA->productPrice = $row['productPrice'];
+                $productA->productDesc = $row['productDesc'];
+                $productA->productImage = $row['productImage'];
+                $productA->displayProducts();
+            }
         }
-        else
-        {
-            // echo "Successfull Connection";
-            echo " ";
+        else{
+            echo "0 results";
         }
-
-        $sql = "SELECT * FROM Products";
-
-        $qryResult = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_assoc($qryResult)) {
-            echo "Product Name: ". $row["ProductName"]. " - Description: ". $row["ProductDesc"]. " Price: €" . $row["Price"]."<br>";
-        }
-
-        mysqli_close($conn);
         ?>
     </section>
     <?php include 'footer.php'?>

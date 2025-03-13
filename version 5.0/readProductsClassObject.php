@@ -41,33 +41,11 @@ class readProductsClassObject
     public function displayProducts(){
         echo "<br>--------------------------------------------------------------------------";
         echo "<br>-----------Product Details------------------------------------------------";
-        echo "<br>-------Product Name:  " . $this->getproductName() . "---------------------";
+        echo "<br>-------Product ID:    " . $this->getProductID() . "---------------------------";
         echo "<br>-------Product Price: " . $this->getproductPrice() . "--------------------";
         echo "<br>-------Product Image: " . $this->getproductImage() . "--------------------";
+        echo "<br>-------Product Name:  " . $this->getproductName() . "---------------------";
         echo "<br>---Product Description:  " . $this->getproductDesc() . "------------------";
         echo "<br>--------------------------------------------------------------------------";
     }
 }
-$productA  = new readProductsClassObject();
-$productB  = new readProductsClassObject();
-$productC  = new readProductsClassObject();
-$productD  = new readProductsClassObject();
-$productE  = new readProductsClassObject();
-
-$productA->setProductID('1');
-$productB->setProductID('2');
-$productC->setProductID('3');
-$productD->setProductID('4');
-$productE->setProductID('5');
-
-$productA->setProductPrice('500');
-$productB->setProductPrice('1000');
-$productC->setProductPrice('1500');
-$productD->setProductPrice('2000');
-$productE->setProductPrice('2500');
-
-$productA->setProductImage('');
-$productA->setProductName('Computer A');
-$productA->setProductDesc('This is a Computer A');
-
-$productA -> displayProducts();

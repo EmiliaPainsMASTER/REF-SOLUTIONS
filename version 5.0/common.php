@@ -9,4 +9,3 @@ function escape($data) {
   $data = stripslashes($data);   
   return ($data); 
 }
-?>
