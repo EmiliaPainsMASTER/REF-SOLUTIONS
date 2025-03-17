@@ -1,0 +1,89 @@
+/*
+Consolidation of css files will solve headaches line 4-9 is global and affects all pages
+*/
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+}
+/*Styling for the navigation bar credit goes to W3Schools*/
+header.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 18px;
+}
+
+header.navbar a:hover {
+  background-color: gray;
+  border-radius: 5px;
+}
+
+/*Styling for the footer*/
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+/*Styling for the form input buttons*/
+input[type="submit"] {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+/*When user hovers background color for input button changes*/
+input[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/*Styling for the search bar which is inside the navigation Bar*/
+.searchbar input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Titles */
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-top: 20px;
+}
+
+/*Styling for container which will support the flex box*/
+.container {
+  background: white;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Global styling for form input/select buttons */
+input, select, textarea, td {
+  width: 90%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 2px solid gray;
+  border-radius: 4px;
+}

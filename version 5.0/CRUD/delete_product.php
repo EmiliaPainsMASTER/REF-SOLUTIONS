@@ -55,12 +55,12 @@ try {
                 <td><?php echo escape($row["Price"]); ?></td>
                 <td><?php echo escape($row["ProductDesc"]); ?></td>
                 <td><img src="<?php echo escape($row["Image"]); ?>" alt="Product Image" width="50"></td>
-                <td><a href="delete.php?id=<?php echo escape($row["ProductID"]); ?>">Delete</a></td>
+                <td><a href="delete.php?id=<?php echo escape($row[">Delete</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
-<a href="index.php">Back to home</a>
+<a href="../index.php">Back to home</a>
 
 <?php require "footer.php"; ?>

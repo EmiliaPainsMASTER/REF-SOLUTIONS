@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="css/refSolution.css">
-    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="../css/refSolution.css">
+    <link rel="stylesheet" href="../css/layout.css">
 </head>
 
     <?php
@@ -42,14 +42,14 @@ try {
                 <td><?php echo escape($row["Price"]); ?></td>
                 <td><?php echo escape($row["ProductDesc"]); ?></td>
                 <td>
-                    <a href="update-single.php?id=<?php echo escape($row["ProductID"]); ?>">Edit</a>
+                    <a href="update-single.php?id=<?php echo escape($row[">Edit</a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
-<a href="index.php">Back to Home</a>
+<a href="../index.php">Back to Home</a>
 
 <?php require "footer.php"; ?>
 </html>

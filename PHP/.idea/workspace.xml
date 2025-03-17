@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98e1dd7f-7b8f-4d3c-b8e2-d4b005af5c65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/refSolution.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/refSolution.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/history.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoPages/common.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoPages/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/delete_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/delete_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/templates/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/templates/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/history.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/readProductsClassObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoObjects/readProductsClassObject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/search.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/src/DBconnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoPages/DBconnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/update-single.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/update-single.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 5.0/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/update.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +92,8 @@
       <updated>1740131586223</updated>
       <workItem from="1740131590665" duration="162000" />
       <workItem from="1741091798963" duration="3395000" />
-      <workItem from="1741102621807" duration="1362000" />
+      <workItem from="1741102621807" duration="1523000" />
+      <workItem from="1742209741803" duration="660000" />
     </task>
     <servers />
   </component>

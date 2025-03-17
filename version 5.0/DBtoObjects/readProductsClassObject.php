@@ -49,3 +49,24 @@ class readProductsClassObject
         echo "<br>--------------------------------------------------------------------------";
     }
 }
+class deleteProductsClassObject
+{
+    public $productID;
+    public function getProductID(){
+        return $this->productID;
+    }
+    public function setProductID($productID){
+        $this->productID = $productID;
+    }
+}
+class updateProductsClassObject {
+    public $productID;
+    public $productPrice;
+    public $productImage;
+    public $productName;
+    public $productDesc;
+    public function getProductID(){
+        return $this->productID;
+    }
+    public function setProductID($productID){}
+}

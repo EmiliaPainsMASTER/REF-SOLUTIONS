@@ -6,11 +6,11 @@
     <title>Products</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'templates/header.php'; ?>
     <section>
         <?php
-        include 'readProductsClassObject.php';
-        include 'src/DBconnect.php'; // This uses PDO
+        include 'DBtoObjects/readProductsClassObject.php';
+        include 'DBtoPages/DBconnect.php'; // This uses PDO
 
         $sql = "SELECT * FROM products";
         $stmt = $connection->query($sql); // Use PDO query
@@ -31,6 +31,6 @@
         }
         ?>
     </section>
-    <?php include 'footer.php'?>
+    <?php include 'templates/footer.php' ?>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
     $host = "localhost"; 
     $username = "root";        
-    $password = "pass";             
+    $password = "pass";
     $dbname = "refsolutions";
     $dsn = "mysql:host=$host;dbname=$dbname"; 
     $options = array(
