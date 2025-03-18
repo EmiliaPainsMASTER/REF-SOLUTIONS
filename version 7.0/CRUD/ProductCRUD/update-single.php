@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update product form</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/layout.css">
 </head>
-<?php require "../templates/header.php"; ?>
+<?php require "../../templates/header.php"; ?>
 <?php
-require "../DBtoPages/common.php";
-require_once '../DBtoPages/DBconnect.php';
-require_once '../DBtoObjects/ProductsClassObject.php';
+require "../../DBtoPages/common.php";
+require_once '../../DBtoPages/DBconnect.php';
+require_once '../../DBtoObjects/ProductsClassObject.php';
 if (isset($_POST['submit'])) {
     try {
         $product = ProductsClassObject::loadFromDB($_POST['id'], $connection);
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
             exit;
         }
         else{
-            echo "Something went wrong!";
+            echo "Something went wrong between lines 15-21!";
         }
     } catch (PDOException $error) {
         echo $error->getMessage();
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 if (isset($_GET['id'])) {
     $product = ProductsClassObject::loadFromDB($_GET['id'], $connection);
 } else {
-    echo "Something went wrong!";
+    echo "Something went wrong between lines 32-35!";
     exit;
 }
 
@@ -42,18 +42,16 @@ if (isset($_GET['id'])) {
     <h2 class="title">Edit a Product</h2>
 
     <div class="container">
-        <form method="post">
+        <form method="post" action="update-single.php">
             <input type="hidden" name="id" value="<?php echo $product->getProductId(); ?>">
+            <label for="ProductName">Product Name</label>
+                <input type="text" id="ProductName" name="ProductName" value="<?php echo $product->getProductName(); ?>">
 
-            <br><label>Product Name</label><br>
-            <input type="text" name="ProductName" value="<?php echo $product->getProductName(); ?>">
+            <label for="ProductPrice">Product Price</label>
+            <input type="text" id='ProductPrice' name="ProductPrice" value="<?php echo $product->getProductPrice(); ?>">
 
-            <br><label>Product Price</label><br>
-            <input type="text" name="ProductPrice" value="<?php echo $product->getProductPrice(); ?>">
-
-            <br><label>Product Description</label><br>
-            <label for="ProductDesc">
-            </label><textarea name="ProductDesc" id="ProductDesc" rows="5" cols="30"><?php echo $product->getProductDesc(); ?>
+            <label for="ProductDesc">Product Description</label>
+            <textarea name="ProductDesc" id="ProductDesc" rows="5" cols="30"><?php echo $product->getProductDesc(); ?>
             </textarea>
 
             <input type="submit" name="submit" value="Submit">
@@ -61,6 +59,6 @@ if (isset($_GET['id'])) {
     </div>
     <a href="update.php">Back to Products List</a>
 </section>
-<?php require "../templates/footer.php"; ?>
+<?php require "../../templates/footer.php"; ?>
 </body>
 </html>

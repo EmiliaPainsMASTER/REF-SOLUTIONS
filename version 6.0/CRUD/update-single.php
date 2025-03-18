@@ -45,21 +45,20 @@ if (isset($_GET['id'])) {
         <form method="post">
             <input type="hidden" name="id" value="<?php echo $product->getProductId(); ?>">
 
-            <br><label>Product Name</label><br>
-            <input type="text" name="ProductName" value="<?php echo $product->getProductName(); ?>">
+            <label for="ProductName">Product Name</label>
+            <input type="text" id="ProductName" name="ProductName" value="<?php echo $product->getProductName(); ?>">
 
-            <br><label>Product Price</label><br>
-            <input type="text" name="ProductPrice" value="<?php echo $product->getProductPrice(); ?>">
+            <label for="ProductPrice">Product Price</label>
+            <input type="text" id="ProductPrice" name="ProductPrice" value="<?php echo $product->getProductPrice(); ?>">
 
-            <br><label>Product Description</label><br>
-            <label for="ProductDesc">
-            </label><textarea name="ProductDesc" id="ProductDesc" rows="5" cols="30"><?php echo $product->getProductDesc(); ?>
+            <label for="ProductDesc">Product Description</label>
+            <textarea name="ProductDesc" id="ProductDesc" rows="5" cols="30"><?php echo $product->getProductDesc(); ?>
             </textarea>
 
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
-    <a href="update.php">Back to Products List</a>
+    <a href="../product.php">Back to Products List</a>
 </section>
 <?php require "../templates/footer.php"; ?>
 </body>

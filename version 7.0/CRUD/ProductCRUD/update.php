@@ -3,15 +3,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update products</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/layout.css">
 </head>
 
 
 
 <?php
-include "../templates/header.php";
-require "../templates/loadAllFromDB.php";
+include "../../templates/header.php";
+require "../../templates/loadAllFromDB.php";
 ?>
 <body>
 <section class="container">
@@ -39,6 +39,6 @@ require "../templates/loadAllFromDB.php";
         </tbody>
     </table>
 </section>
-<?php include '../templates/footer.php' ?>
+<?php include '../../templates/footer.php' ?>
 </body>
 </html>

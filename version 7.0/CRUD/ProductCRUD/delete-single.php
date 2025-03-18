@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/layout.css">
 </head>
-<?php require "../templates/header.php"; ?>
+<?php require "../../templates/header.php"; ?>
 <?php
-require "../DBtoPages/common.php";
-require_once '../DBtoPages/DBconnect.php';
-require_once '../DBtoObjects/ProductsClassObject.php';
+require "../../DBtoPages/common.php";
+require_once '../../DBtoPages/DBconnect.php';
+require_once '../../DBtoObjects/ProductsClassObject.php';
 $success = false;
 if (isset($_GET["id"])) {
     try {

@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create product form</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/layout.css">
 </head>
-<?php require "../templates/header.php"; ?>
+<?php require "../../templates/header.php"; ?>
 <?php
-require "../DBtoPages/common.php";
-require_once '../DBtoPages/DBconnect.php';
-require_once '../DBtoObjects/ProductsClassObject.php';
+require "../../DBtoPages/common.php";
+require_once '../../DBtoPages/DBconnect.php';
+require_once '../../DBtoObjects/ProductsClassObject.php';
 if (isset($_POST['submit'])) {
     try {
         $product = new ProductsClassObject();
@@ -52,8 +52,8 @@ if (isset($_POST['submit'])) {
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
-    <a href="../product.php">Back to Products List</a>
+    <a href="../../product.php">Back to Products List</a>
 </section>
-<?php require "../templates/footer.php"; ?>
+<?php require "../../templates/footer.php"; ?>
 </body>
 </html>

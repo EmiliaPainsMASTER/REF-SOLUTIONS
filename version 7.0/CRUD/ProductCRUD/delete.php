@@ -2,14 +2,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update products</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/layout.css">
+    <title>Delete products</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/layout.css">
 </head>
 
 <?php
-include "../templates/header.php";
-require "../templates/loadAllFromDB.php";
+include "../../templates/header.php";
+require "../../templates/loadAllFromDB.php";
 ?>
 <body>
 <section class="container">
@@ -30,13 +30,13 @@ require "../templates/loadAllFromDB.php";
                     <td><?php echo $product->getProductName(); ?></td>
                     <td><?php echo $product->getProductPrice(); ?></td>
                     <td><?php echo $product->getProductDesc(); ?></td>
-                    <td><a href="update-single.php?id=<?php echo $product->getProductID(); ?>">Delete</a></td>
+                    <td><a href="delete-single.php?id=<?php echo $product->getProductID(); ?>">Delete</a></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
     </table>
 </section>
-<?php include '../templates/footer.php' ?>
+<?php include '../../templates/footer.php' ?>
 </body>
 </html>
