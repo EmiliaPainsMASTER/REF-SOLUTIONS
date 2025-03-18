@@ -9,11 +9,11 @@
 <body>
 <?php
 include '../../templates/header.php';
-include '../../templates/loadAllFromProductsTable.php';
+include '../../templates/loadAllFromPurchaseTable.php';
 ?>
 <section class="container">
-    <h2>Create product</h2>
-    <a href="create-single.php" class="button">Create a new product</a>
+    <h2>Create a new purchase</h2>
+    <a href="create-single.php" class="button">Create a new purchase</a>
 </section>
 <?php include '../../templates/footer.php'; ?>
 </body>

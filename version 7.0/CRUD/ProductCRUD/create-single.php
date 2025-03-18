@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         $product->setProductName($_POST['ProductName']);
         $product->setProductDesc($_POST['ProductDesc']);
         if ($product->insertDB($connection)){
-            header("Location: ../product.php");
+            header("Location: ../../product.php");
             exit;
         }
         else{

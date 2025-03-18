@@ -13,7 +13,7 @@ include '../../templates/loadAllFromProductsTable.php';
 ?>
 <section class="container">
     <h2>Create product</h2>
-    <a href="create-single.php" class="button">Create a new product</a>
+    <a href="create-single.php" class="button">Create a new admin account</a>
 </section>
 <?php include '../../templates/footer.php'; ?>
 </body>

@@ -7,6 +7,22 @@ class ProductsClassObject
     public $productImage;
     public $productName;
     public $productDesc;
+
+    /**
+     * @param $row
+     * @return ProductsClassObject
+     */
+    public static function getProductsClassObject($row)
+    {
+        $product = new ProductsClassObject();
+        $product->setProductID($row['ProductID']);
+        $product->setProductPrice($row['Price']);
+        $product->setProductImage($row['Image']);
+        $product->setProductName($row['ProductName']);
+        $product->setProductDesc($row['ProductDesc']);
+        return $product;
+    }
+
     public function getProductID(){
         return $this->productID;
     }
@@ -44,13 +60,7 @@ class ProductsClassObject
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            $product = new ProductsClassObject();
-            $product->setProductID($row['ProductID']);
-            $product->setProductPrice($row['Price']);
-            $product->setProductImage($row['Image']);
-            $product->setProductName($row['ProductName']);
-            $product->setProductDesc($row['ProductDesc']);
-            return $product;
+            return self::getProductsClassObject($row);
         }
         else{
             return null;
@@ -74,12 +84,7 @@ class ProductsClassObject
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $products = array();
         foreach ($rows as $row) {
-            $product = new ProductsClassObject();
-            $product->setProductID($row['ProductID']);
-            $product->setProductPrice($row['Price']);
-            $product->setProductImage($row['Image']);
-            $product->setProductName($row['ProductName']);
-            $product->setProductDesc($row['ProductDesc']);
+            $product = self::getProductsClassObject($row);
             $products[] = $product;
             return $products;
         }
@@ -89,14 +94,14 @@ class ProductsClassObject
         $sql = "UPDATE products SET Price = :price, Image = :image, ProductName = :name, ProductDesc = :desc WHERE ProductID = :id";
         $stmt = $dbConnection->prepare($sql);
 
-        // Store getter results into variables
+        //Store getter results into variables
         $id = $this->getProductID();
         $name = $this->getProductName();
         $price = $this->getProductPrice();
         $desc = $this->getProductDesc();
         $image = $this->getProductImage();
 
-        // Bind the variables (by reference)
+        //Bind variables to the attributes
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':price', $price);

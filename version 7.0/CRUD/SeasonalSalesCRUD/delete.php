@@ -2,35 +2,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete products</title>
+    <title>Delete Seasonal Sales</title>
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/layout.css">
 </head>
 
 <?php
 include "../../templates/header.php";
-require "../../templates/loadAllFromProductsTable.php";
+require "../../templates/loadAllFromSeasonalSaleTable.php";
 ?>
 <body>
 <section class="container">
-    <h2>Delete Products</h2>
+    <h2>Delete Seasonal Sales</h2>
     <table>
         <thead>
         <tr>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Description</th>
+            <th>Easter Products</th>
+            <th>St. Patrick's Day Products</th>
             <th>Delete</th>
         </tr>
         </thead>
         <tbody>
-        <?php if (!empty($products)) : ?>
-            <?php foreach ($products as $product) : ?>
+        <?php if (!empty($seasonalSales)) : ?>
+            <?php foreach ($seasonalSales as $seasonalSale) : ?>
                 <tr>
-                    <td><?php echo $product->getProductName(); ?></td>
-                    <td><?php echo $product->getProductPrice(); ?></td>
-                    <td><?php echo $product->getProductDesc(); ?></td>
-                    <td><a href="delete-single.php?id=<?php echo $product->getProductID(); ?>">Delete</a></td>
+                    <td><?php echo $seasonalSale->getSeasonalSaleEasterProducts(); ?></td>
+                    <td><?php echo $seasonalSale->getSeasonalSaleStPatricksDayProducts(); ?></td>
+                    <td><a href="delete-single.php?id=<?php echo $seasonalSale->getSeasonalSaleID(); ?>">Delete</a></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>

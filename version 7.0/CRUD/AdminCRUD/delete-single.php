@@ -10,12 +10,12 @@
 <?php
 require "../../DBtoPages/common.php";
 require_once '../../DBtoPages/DBconnect.php';
-require_once '../../DBtoObjects/ProductsClassObject.php';
+require_once '../../DBtoObjects/AdminClassObject.php';
 $success = false;
 if (isset($_GET["id"])) {
     try {
-        $product = ProductsClassObject::loadFromDB($_GET["id"], $connection);
-        if ($product->deleteDB($connection)) {
+        $admin = AdminClassObject::loadFromDB($_GET["id"], $connection);
+        if ($admin->deleteDB($connection)) {
             $success = true;
             echo "Success!";
         } else {
