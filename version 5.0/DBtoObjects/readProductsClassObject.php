@@ -39,13 +39,12 @@ class readProductsClassObject
     }
 
     public function displayProducts(){
-        echo "<br>--------------------------------------------------------------------------";
-        echo "<br>-----------Product Details------------------------------------------------";
-        echo "<br>-------Product ID:    " . $this->getProductID() . "---------------------------";
-        echo "<br>-------Product Price: " . $this->getproductPrice() . "--------------------";
-        echo "<br>-------Product Image: " . $this->getproductImage() . "--------------------";
-        echo "<br>-------Product Name:  " . $this->getproductName() . "---------------------";
-        echo "<br>---Product Description:  " . $this->getproductDesc() . "------------------";
+        echo "<br>Product Details";
+        echo "<br>Product ID:    " . $this->getProductID();
+        echo "<br>Product Price: " . $this->getproductPrice();
+        echo "<br>Product Image: " . $this->getproductImage();
+        echo "<br>Product Name:  " . $this->getproductName();
+        echo "<br>Product Description:  " . $this->getproductDesc();
         echo "<br>--------------------------------------------------------------------------";
     }
 }
