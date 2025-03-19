@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/layout.css">
 </head>
-
-
-
 <?php
 include "../../templates/header.php";
 require "../../templates/loadAllFromUserTable.php";

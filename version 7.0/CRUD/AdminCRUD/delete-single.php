@@ -28,5 +28,6 @@ if (isset($_GET["id"])) {
     }
 }
     header("Location: delete.php");
+    exit;
 ?>
 </html>

@@ -14,7 +14,6 @@ require_once '../../DBtoObjects/AdminClassObject.php';
 if (isset($_POST['submit'])) {
     try {
         $admin = new AdminClassObject();
-        $admin->setAdminID($_POST['AdminID']);
         $admin->setAdminName($_POST['AdminName']);
         $admin->setAdminEmail($_POST['AdminEmail']);
         $admin->setAdminPassword($_POST['AdminPassword']);

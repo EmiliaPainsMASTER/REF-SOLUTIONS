@@ -9,7 +9,6 @@
 <body>
 <?php
 include '../../templates/header.php';
-include '../../templates/loadAllFromPurchaseTable.php';
 ?>
 <section class="container">
     <h2>Create a new purchase</h2>

@@ -86,9 +86,8 @@ class ProductsClassObject
         foreach ($rows as $row) {
             $product = self::getProductsClassObject($row);
             $products[] = $product;
-            return $products;
         }
-        return null;
+        return $products;
     }
     public function updateDB($dbConnection) {
         $sql = "UPDATE products SET Price = :price, Image = :image, ProductName = :name, ProductDesc = :desc WHERE ProductID = :id";

@@ -9,7 +9,6 @@
 <body>
 <?php
 include '../../templates/header.php';
-include '../../templates/loadAllFromSeasonalSaleTable.php.php';
 ?>
 <section class="container">
     <h2>Create New Sale</h2>

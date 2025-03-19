@@ -34,7 +34,7 @@ require "../../templates/loadAllFromUserTable.php";
                     <td><?php echo $user->getEmail(); ?></td>
                     <td><?php echo $user->getPassword(); ?></td>
                     <td><?php echo $user->getAge(); ?></td>
-                    <td><a href="update-single.php?id=<?php echo $user->getUserID(); ?>">Delete</a></td>
+                    <td><a href="delete-single.php?id=<?php echo $user->getUserID(); ?>">Delete</a></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>

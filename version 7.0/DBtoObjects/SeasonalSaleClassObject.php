@@ -76,8 +76,10 @@ class SeasonalSaleClassObject
     public function insertDB($dbConnection){
         $sql = "INSERT INTO seasonal_sale (seasonalSaleEasterProducts, seasonalSaleStPatricksDayProducts) VALUES (:seasonalSaleEasterProducts, :seasonalSaleStPatricksDayProducts)";
         $stmt = $dbConnection->prepare($sql);
-        $stmt->bindParam(':seasonalSaleEasterProducts', $this->getSeasonalSaleEasterProducts());
-        $stmt->bindParam(':seasonalSaleStPatricksDayProducts', $this->getSeasonalSaleStPatricksDayProducts());
+        $EasterProducts = $this->getSeasonalSaleEasterProducts();
+        $StPatricksDayProducts = $this->getSeasonalSaleStPatricksDayProducts();
+        $stmt->bindParam(':seasonalSaleEasterProducts', $EasterProducts);
+        $stmt->bindParam(':seasonalSaleStPatricksDayProducts', $StPatricksDayProducts);
         $stmt->execute();
         $this->setSeasonalSaleID($dbConnection->lastInsertId());
         return $this->getSeasonalSaleID();
@@ -91,12 +93,11 @@ class SeasonalSaleClassObject
         foreach ($rows as $row) {
             $seasonalSale = self::getSeasonalSale($row);
             $seasonalSales[] = $seasonalSale;
-            return $seasonalSales;
         }
-        return null;
+        return $seasonalSales;
     }
     public function updateDB($dbConnection) {
-        $sql = "UPDATE seasonal_sale SET seasonalSaleEasterProducts = :seasonalSaleEasterProducts, seasonalSaleStPatricksDayProducts = :seasonalSaleStPatricksDayProducts WHERE seasonalSaleID = :id";
+        $sql = "UPDATE seasonal_sale SET seasonalSaleEasterProducts = :easterProducts, seasonalSaleStPatricksDayProducts = :stPatricksProducts WHERE seasonalSaleID = :id";
         $stmt = $dbConnection->prepare($sql);
         $id = $this->getSeasonalSaleID();
         $seasonalSaleEasterProducts = $this->getSeasonalSaleEasterProducts();
@@ -111,7 +112,6 @@ class SeasonalSaleClassObject
         $sql = "DELETE FROM seasonal_sale WHERE seasonalSaleID = :id";
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':id', $this->getSeasonalSaleID());
-        $stmt->execute();
         return $stmt->execute();
     }
     public function displaySeasonalSales(){

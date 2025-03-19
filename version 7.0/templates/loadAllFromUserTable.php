@@ -5,7 +5,7 @@ require_once  __DIR__ . '/../DBtoObjects/UserClassObject.php';
 
 try {
     // Fetch all products using the class method
-    $user = UserClassObject::loadAllFromDB($connection);
+    $users = UserClassObject::loadAllFromDB($connection);
 } catch (PDOException $error) {
     echo $error->getMessage();
 }

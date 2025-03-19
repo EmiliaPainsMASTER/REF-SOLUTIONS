@@ -9,7 +9,6 @@
 <body>
 <?php
 include '../../templates/header.php';
-include '../../templates/loadAllFromProductsTable.php';
 ?>
 <section class="container">
     <h2>Create product</h2>

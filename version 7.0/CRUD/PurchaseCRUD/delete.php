@@ -8,7 +8,7 @@
 </head>
 <?php
 include "../../templates/header.php";
-require "../../templates/loadAllFromSeasonalSaleTable.php";
+require "../../templates/loadAllFromPurchaseTable.php";
 ?>
 <body>
 <section class="container">

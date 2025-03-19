@@ -7,15 +7,8 @@
     <link rel="stylesheet" href="../../css/layout.css">
 </head>
 <?php
-require "../../DBtoPages/common.php";
-require_once '../../DBtoPages/DBconnect.php';
-require_once '../../DBtoObjects/PurchaseClassObject.php';
-
-try {
-    $purchases = PurchaseClassObject::loadAllFromDB($connection);
-} catch (PDOException $error) {
-    echo $error->getMessage();
-}
+include "../../templates/header.php";
+require "../../templates/loadAllFromPurchaseTable.php";
 ?>
 <body>
 <section class="container">

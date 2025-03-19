@@ -103,14 +103,25 @@ class UserClassObject
             return null;
         }
     }
-    public function insertDB($dbConnection){
+    public function insertDB($dbConnection)
+    {
         $sql = "INSERT INTO user (FName, SName, Email, Password, Age) VALUES (:fname, :lname, :email, :password, :age)";
         $stmt = $dbConnection->prepare($sql);
-        $stmt->bindParam(':FName', $this->getFName());
-        $stmt->bindParam(':SName', $this->getSName());
-        $stmt->bindParam(':Email', $this->getEmail());
-        $stmt->bindParam(':Password', $this->getPassword());
-        $stmt->bindParam(':Age', $this->getAge());
+
+        // Define intermediate variables
+        $fname = $this->getFName();
+        $lname = $this->getSName();
+        $email = $this->getEmail();
+        $password = $this->getPassword();
+        $age = $this->getAge();
+
+        // Pass only variables to bindParam
+        $stmt->bindParam(':fname', $fname);
+        $stmt->bindParam(':lname', $lname);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':age', $age);
+
         $stmt->execute();
         $this->setUserID($dbConnection->lastInsertId());
         return $this->getUserID();
@@ -124,28 +135,27 @@ class UserClassObject
         foreach ($rows as $row) {
             $user = self::getUserClassObject($row);
             $users[] = $user;
-            return $users;
         }
-        return null;
+        return $users;
     }
     public function updateDB($dbConnection) {
-        $sql = "UPDATE user SET FName = :fname, SName = :lname, Email = :email, Password = :password, Age = :age WHERE userID = :id";
+        $sql = "UPDATE user SET FName = :fname, SName = :lname, Email = :email, Password = :password, Age = :age WHERE userID = :userID";
         $stmt = $dbConnection->prepare($sql);
-        //ref vals
+
         $id = $this->getUserID();
         $fname = $this->getFName();
         $lname = $this->getSName();
         $email = $this->getEmail();
         $password = $this->getPassword();
         $age = $this->getAge();
-        //bind vals
-        $stmt->bindParam(':userID', $id);
-        $stmt->bindParam(':FName', $fname);
-        $stmt->bindParam(':SName', $lname);
-        $stmt->bindParam(':Email', $email);
-        $stmt->bindParam(':Password', $password);
-        $stmt->bindParam(':Age', $age);
-        //execution!
+
+        $stmt->bindParam(':userID', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':fname', $fname);
+        $stmt->bindParam(':lname', $lname);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':age', $age);
+
         return $stmt->execute();
     }
 
@@ -153,7 +163,6 @@ class UserClassObject
         $sql = "DELETE FROM user WHERE userID = :id";
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':userID', $this->getUserID());
-        $stmt->execute();
         return $stmt->execute();
     }
     public function displayUsers(){

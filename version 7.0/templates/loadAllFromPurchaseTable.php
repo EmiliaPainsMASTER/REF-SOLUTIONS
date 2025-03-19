@@ -5,7 +5,7 @@ require_once  __DIR__ . '/../DBtoObjects/PurchaseClassObject.php';
 
 try {
     // Fetch all products using the class method
-    $purchase = PurchaseClassObject::loadAllFromDB($connection);
+    $purchases = PurchaseClassObject::loadAllFromDB($connection);
 } catch (PDOException $error) {
     echo $error->getMessage();
 }

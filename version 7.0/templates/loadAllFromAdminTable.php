@@ -4,7 +4,7 @@ require_once __DIR__ .  '/../DBtoPages/DBconnect.php';
 require_once  __DIR__ . '/../DBtoObjects/AdminClassObject.php';
 
 try {
-    $admin = AdminClassObject::loadAllFromDB($connection);
+    $admins = AdminClassObject::loadAllFromDB($connection);
 } catch (PDOException $error) {
     echo $error->getMessage();
 }

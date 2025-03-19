@@ -14,16 +14,14 @@ class AdminClassObject
      * @param $row
      * @return AdminClassObject
      */
-    public static function getAdminClassObject($row)
-    {
+    public static function getAdminClassObject($row) {
         $admin = new AdminClassObject();
         $admin->setAdminID($row['adminID']);
-        $admin->setAdminName($row['adminName']);
-        $admin->setAdminEmail($row['adminEmail']);
-        $admin->setAdminPassword($row['adminPassword']);
+        $admin->setAdminName($row['name']);
+        $admin->setAdminEmail($row['email']);
+        $admin->setAdminPassword($row['password']);
         return $admin;
     }
-
     public function getAdminID()
     {
         return $this->adminID;
@@ -80,11 +78,16 @@ class AdminClassObject
         }
     }
     public function insertDB($dbConnection){
-        $sql = "INSERT INTO admin (adminName, adminEmail, adminPassword) VALUES (:name, :email, :password)";
+        $sql = "INSERT INTO admin (name, email, password) VALUES (:name, :email, :password)";
         $stmt = $dbConnection->prepare($sql);
-        $stmt->bindParam(':name', $this->getAdminName());
-        $stmt->bindParam(':email', $this->getAdminEmail());
-        $stmt->bindParam(':password', $this->getAdminPassword());
+        $adminName = $this->getAdminName();
+        $adminEmail = $this->getAdminEmail();
+        $adminPassword = $this->getAdminPassword();
+
+        $stmt->bindParam(':name', $adminName);
+        $stmt->bindParam(':email', $adminEmail);
+        $stmt->bindParam(':password', $adminPassword);
+
         $stmt->execute();
         $this->setAdminID($dbConnection->lastInsertId());
         return $this->getAdminID();
@@ -98,12 +101,11 @@ class AdminClassObject
         foreach ($rows as $row) {
             $admin = self::getAdminClassObject($row);
             $admins[] = $admin;
-            return $admins;
         }
-        return null;
+        return $admins;
     }
     public function updateDB($dbConnection) {
-        $sql = "UPDATE admin SET adminName = :name, adminEmail = :email, adminPassword = :password WHERE adminID = :id";
+        $sql = "UPDATE admin SET name = :name, email = :email, password = :password WHERE adminID = :id";
         $stmt = $dbConnection->prepare($sql);
 
         $id = $this->getAdminID();
@@ -121,7 +123,6 @@ class AdminClassObject
         $sql = "DELETE FROM admin WHERE adminID = :id";
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':id', $this->getAdminID());
-        $stmt->execute();
         return $stmt->execute();
     }
     public function displayAdmin(){

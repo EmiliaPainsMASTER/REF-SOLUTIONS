@@ -5,7 +5,7 @@ require_once  __DIR__ . '/../DBtoObjects/SeasonalSaleClassObject.php';
 
 try {
     // Fetch all products using the class method
-    $seasonalSale = SeasonalSaleClassObject::loadAllFromDB($connection);
+    $seasonalSales = SeasonalSaleClassObject::loadAllFromDB($connection);
 } catch (PDOException $error) {
     echo $error->getMessage();
 }

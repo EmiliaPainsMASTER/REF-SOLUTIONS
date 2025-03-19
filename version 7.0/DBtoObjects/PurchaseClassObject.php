@@ -59,7 +59,7 @@ class PurchaseClassObject
 
     //function start
     public static function loadFromDB($id, $dbConnection){
-        $sql = "SELECT * FROM purchases WHERE PurchaseID = :PurchaseID";
+        $sql = "SELECT * FROM purchase WHERE PurchaseID = :PurchaseID";
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':PurchaseID', $id);
         $stmt->execute();
@@ -71,18 +71,24 @@ class PurchaseClassObject
             return null;
         }
     }
+    //TODO figure out a fix for line 74?
     public function insertDB($dbConnection){
-        $sql = "INSERT INTO purchases (Total, Date, Quantity) VALUES (:total, :date, :quantity)";
+        $sql = "INSERT INTO purchase (Total, Date, Quantity) VALUES (:total, :date, :quantity)";
         $stmt = $dbConnection->prepare($sql);
-        $stmt->bindParam(':total', $this->getPurchaseTotal());
-        $stmt->bindParam(':date', $this->getPurchaseDate());
-        $stmt->bindParam(':quantity', $this->getPurchaseQuantity());
+        $total = $this->getPurchaseTotal();
+        $date = $this->getPurchaseDate();
+        $quantity = $this->getPurchaseQuantity();
+
+        $stmt->bindParam(':total', $total);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':quantity', $quantity);
+
         $stmt->execute();
         $this->setPurchaseID($dbConnection->lastInsertId());
         return $this->getPurchaseID();
     }
     public static function loadAllFromDB($dbConnection){
-        $sql = "SELECT * FROM purchases";
+        $sql = "SELECT * FROM purchase";
         $stmt = $dbConnection->prepare($sql);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -90,12 +96,11 @@ class PurchaseClassObject
         foreach ($rows as $row) {
             $purchase = self::getPurchaseClassObject($row);
             $purchases[] = $purchase;
-            return $purchases;
         }
-        return null;
+        return $purchases;
     }
     public function updateDB($dbConnection) {
-        $sql = "UPDATE purchases SET Total = :total, Date = :date, Quantity = :quantity WHERE PurchaseID = :id";
+        $sql = "UPDATE purchase SET Total = :total, Date = :date, Quantity = :quantity WHERE PurchaseID = :id";
         $stmt = $dbConnection->prepare($sql);
         //Store getter values into variables
         $id = $this->getPurchaseID();
@@ -112,10 +117,10 @@ class PurchaseClassObject
     }
 
     public function deleteDB($dbConnection){
-        $sql = "DELETE FROM purchases WHERE PurchaseID = :id";
+        $sql = "DELETE FROM purchase WHERE PurchaseID = :id";
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':id', $this->getPurchaseID());
-        $stmt->execute();
+        return $stmt->execute();
     }
     public function displayPurchases(){
         echo "<br>--------------------------------------------------------------------------";
