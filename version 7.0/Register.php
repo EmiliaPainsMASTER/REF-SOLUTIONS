@@ -11,29 +11,26 @@
     <?php include 'templates/header.php' ?>
     <section>
         <?php
+        require "DBtoPages/common.php";
+        require_once 'DBtoPages/DBconnect.php';
+        require_once 'DBtoObjects/UserClassObject.php';
+
         if (isset($_POST['submit'])) {
-            require "config.php";
             try {
-                $connection = new PDO($dsn, $username, $password, $options);
-
-                $new_user = array(
-                    "fname" => $_POST['fname'],
-                    "sname" => $_POST['sname'],
-                    "email" => $_POST['email'],
-                    "DateofBirth" => $_POST['dob'],
-                    "password" => ($_POST['password'])
-                );
-
-                $sql = sprintf("INSERT INTO %s (%s) values (%s)", "user",
-                    implode(", ", array_keys($new_user)),
-                    ":" . implode(", :", array_keys($new_user)));
-
-                $statement = $connection->prepare($sql);
-                $statement->execute($new_user);
-
-                echo "Registration successful!";
-            } catch (PDOException $error) {
-                echo "Error: " . $error->getMessage();
+                $user = new UserClassObject();
+                $user->setFName($_POST['firstName']);
+                $user->setSName($_POST['lastName']);
+                $user->setEmail($_POST['email']);
+                $user->setPassword($_POST['password']);
+                $user->setAge($_POST['age']);
+                if ($user->insertDB($connection)) {
+                    header("Location: ../../index.php");
+                    exit;
+                } else {
+                    echo "Failed to create a new user.";
+                }
+            } catch (Exception $e) {
+                echo $e->getMessage();
             }
         }
         ?>

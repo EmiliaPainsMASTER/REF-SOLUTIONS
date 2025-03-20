@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98e1dd7f-7b8f-4d3c-b8e2-d4b005af5c65" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoPages/common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoPages/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/delete_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/delete_product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/templates/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/templates/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/history.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/readProductsClassObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoObjects/readProductsClassObject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/search.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/sell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/src/DBconnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/DBtoPages/DBconnect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/update-single.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/update-single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../version 5.0/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 5.0/CRUD/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../version 7.0/DBtoObjects/UserClassObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/../version 7.0/DBtoObjects/UserClassObject.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/bin/php" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
@@ -50,22 +33,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jamie/Documents/GitHub/REF-SOLUTIONS/PHP&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/emiliapains/Documents/GitHub/REF-SOLUTIONS/version 7.0",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jamie\Documents\GitHub\REF-SOLUTIONS\PHP" />
@@ -77,8 +60,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PS-243.23654.168" />
-        <option value="bundled-php-predefined-a98d8de5180a-4c3855d0ab16-com.jetbrains.php.sharedIndexes-PS-243.23654.168" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PS-243.25659.45" />
+        <option value="bundled-php-predefined-a98d8de5180a-1ec7b7818973-com.jetbrains.php.sharedIndexes-PS-243.25659.45" />
       </set>
     </attachedChunks>
   </component>
@@ -94,6 +77,7 @@
       <workItem from="1741091798963" duration="3395000" />
       <workItem from="1741102621807" duration="1523000" />
       <workItem from="1742209741803" duration="660000" />
+      <workItem from="1742500128110" duration="44000" />
     </task>
     <servers />
   </component>
