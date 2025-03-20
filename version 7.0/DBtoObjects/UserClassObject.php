@@ -158,7 +158,28 @@ class UserClassObject
 
         return $stmt->execute();
     }
+    //authentication
+    public static function authentication($email, $password, $dbConnection) {
+        try {
+            // Fetch the user by email
+            $sql = "SELECT * FROM user WHERE Email = :email";
+            $stmt = $dbConnection->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
 
+            $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($userData && password_verify($password, $userData['Password'])) {
+                // Create and return the UserClassObject for the authenticated user
+                return self::getUserClassObject($userData);
+            } else {
+                // Return null if authentication fails
+                return null;
+            }
+        } catch (PDOException $e) {
+            throw new Exception("Error during authentication: " . $e->getMessage());
+        }
+    }
     public function deleteDB($dbConnection){
         $sql = "DELETE FROM user WHERE userID = :id";
         $stmt = $dbConnection->prepare($sql);
