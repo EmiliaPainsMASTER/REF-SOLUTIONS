@@ -18,11 +18,12 @@
         if (isset($_POST['submit'])) {
             try {
                 $user = new UserClassObject();
-                $user->setFName($_POST['firstName']);
-                $user->setSName($_POST['lastName']);
+                $user->setFName($_POST['fname']);
+                $user->setSName($_POST['sname']);
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
-                $user->setAge($_POST['age']);
+                $user->setAge($_POST['dob']);
+
                 if ($user->insertDB($connection)) {
                     header("Location: ../../index.php");
                     exit;
