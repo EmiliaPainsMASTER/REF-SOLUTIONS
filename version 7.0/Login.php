@@ -1,21 +1,4 @@
 <?php
-require_once 'DBtoPages/DBconnect.php';
-require_once 'DBtoObjects/UserClassObject.php';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    if (!empty($email) && !empty($password)) {
-        try {
-            $user = UserClassObject::authentication($email, $password, $connection);
-            if ($user) {
-                header("Location:  index.php");
-            }
-        } catch (Exception $e) {
-            $message = "Error: " . $e->getMessage();
-        }
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,21 +10,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-<?php include 'templates/header.php' ?>
-<section>
-    <h2 class="title">Login</h2>
-    <div class="container">
-        <form method="post" action="Login.php">
-            <label for="email">Email: </label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
+    <?php include 'templates/header.php' ?>
+    <section>
+        <h2 class="title">Login</h2>
 
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
+        <div class="container">
+            <form method="get">
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
 
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</section>
-<?php include 'templates/footer.php' ?>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <?php include 'templates/footer.php' ?>
 </body>
 </html>
+
