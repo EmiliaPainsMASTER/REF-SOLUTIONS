@@ -108,14 +108,12 @@ class UserClassObject
         $sql = "INSERT INTO user (FName, SName, Email, Password, Age) VALUES (:fname, :lname, :email, :password, :age)";
         $stmt = $dbConnection->prepare($sql);
 
-        // Define intermediate variables
         $fname = $this->getFName();
         $lname = $this->getSName();
         $email = $this->getEmail();
         $password = $this->getPassword();
         $age = $this->getAge();
 
-        // Pass only variables to bindParam
         $stmt->bindParam(':fname', $fname);
         $stmt->bindParam(':lname', $lname);
         $stmt->bindParam(':email', $email);
@@ -158,7 +156,25 @@ class UserClassObject
 
         return $stmt->execute();
     }
+    //authentication
 
+    public static function authentication($email, $password, $dbConnection)
+    {
+        $sql = "SELECT * FROM user WHERE Email = :email";
+        $stmt = $dbConnection->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            if ($row['Password'] === $password) {
+                return self::getUserClassObject($row);
+            }
+        }
+
+        return null;
+    }
     public function deleteDB($dbConnection){
         $sql = "DELETE FROM user WHERE userID = :id";
         $stmt = $dbConnection->prepare($sql);
