@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf8dc9e3-6803-4756-a05d-90d7284bbd9b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CRUD/AdminCRUD/create-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/AdminCRUD/create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/AdminCRUD/delete-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/AdminCRUD/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/AdminCRUD/update-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/AdminCRUD/update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/ProductCRUD/create-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/ProductCRUD/create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/ProductCRUD/delete-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/ProductCRUD/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/ProductCRUD/update-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/ProductCRUD/update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/create-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/delete-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/read.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/update-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/PurchaseCRUD/update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/SeasonalSalesCRUD/create-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/SeasonalSalesCRUD/create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/SeasonalSalesCRUD/delete-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/SeasonalSalesCRUD/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/SeasonalSalesCRUD/update-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/SeasonalSalesCRUD/update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/UserCRUD/create-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/UserCRUD/delete-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/UserCRUD/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/UserCRUD/update-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/UserCRUD/update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/create-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/delete-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/delete.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/read.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/update-single.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CRUD/testCRUD/update.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoObjects/AdminClassObject.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoObjects/ProductsClassObject.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoObjects/PurchaseClassObject.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoObjects/SeasonalSaleClassObject.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoObjects/UserClassObject.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoPages/DBconnect.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoPages/common.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBtoPages/config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Register.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL/refsolutions.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/layout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/cisco_ucs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/dell_poweredge.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hpe_proliant.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ibm_power_systems.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/lenovo_thinksystem.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/loadAllFromAdminTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/loadAllFromProductsTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/loadAllFromPurchaseTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/loadAllFromSeasonalSaleTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/loadAllFromUserTable.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2utm1gSX0999PMeWmZ1WML9sExf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jamie\Documents\GitHub\REF-SOLUTIONS\Version 9.0\old" />
+      <recent name="C:\Users\jamie\Documents\GitHub\REF-SOLUTIONS\Version 9.0\src\Core\Database" />
+      <recent name="C:\Users\jamie\Documents\GitHub\REF-SOLUTIONS\Version 9.0\src\Services" />
+      <recent name="C:\Users\jamie\Documents\GitHub\REF-SOLUTIONS\Version 9.0\src\Core\Utilities" />
+      <recent name="C:\Users\jamie\Documents\GitHub\REF-SOLUTIONS\Version 9.0\public" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PS-243.23654.168" />
+        <option value="bundled-php-predefined-a98d8de5180a-4c3855d0ab16-com.jetbrains.php.sharedIndexes-PS-243.23654.168" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf8dc9e3-6803-4756-a05d-90d7284bbd9b" name="Changes" comment="" />
+      <created>1743076030481</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743076030481</updated>
+      <workItem from="1743076031848" duration="3242000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
