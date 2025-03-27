@@ -1,10 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Users</title>
-    <link rel="stylesheet" href="../../../public/assets/css/main.css">
-    <link rel="stylesheet" href="../../../public/assets/css/layout.css">
+<?php include '../../../templates/crudHead.php'?>
+<title>Update User</title>
 </head>
 <?php
 include "../../templates/header.php";
@@ -40,6 +35,6 @@ require "../../templates/loadAllFromUserTable.php";
         </tbody>
     </table>
 </section>
-<?php include '../../templates/footer.php' ?>
+<?php include '../../../templates/footer.php' ?>
 </body>
 </html>

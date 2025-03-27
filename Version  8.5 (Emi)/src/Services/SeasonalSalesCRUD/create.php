@@ -1,4 +1,5 @@
-<html lang ="en">
+<?php include '../../../templates/crudHead.php'?>
+<title>Create</title>
 <head>
     <title>Create</title>
     <link rel="stylesheet" href="../../../public/assets/css/main.css">
@@ -14,6 +15,6 @@ include '../../templates/header.php';
     <h2>Create New Sale</h2>
     <a href="create-single.php" class="button">Create a new sale</a>
 </section>
-<?php include '../../templates/footer.php'; ?>
+<?php include '../../../templates/footer.php'; ?>
 </body>
 </html>

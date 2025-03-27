@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
         $admin->setAdminEmail($_POST['AdminEmail']);
         $admin->setAdminPassword($_POST['AdminPassword']);
         if ($admin->insertDB($connection)){
-            header("Location: ../../index.php");
+            header("Location: ../../../public/index.php");
             exit;
         }
         else{
@@ -44,6 +44,6 @@ if (isset($_POST['submit'])) {
     </div>
     <a href="../../../public/index.php">Back to Home</a>
 </section>
-<?php require "../../templates/footer.php"; ?>
+<?php require "../../../templates/footer.php"; ?>
 </body>
 </html>

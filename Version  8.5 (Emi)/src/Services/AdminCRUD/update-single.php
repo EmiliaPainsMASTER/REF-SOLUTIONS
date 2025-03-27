@@ -1,5 +1,5 @@
 <?php include "../../../templates/crudHead.php"; ?>
-<title>Update product form</title>
+<title>Update Admin form</title>
 </head>
 
 <?php require "../../../templates/header.php";
@@ -54,6 +54,6 @@ if (isset($_GET['id'])) {
     </div>
     <a href="update.php">Back to Admin List</a>
 </section>
-<?php require "../../templates/footer.php"; ?>
+<?php require "../../../templates/footer.php"; ?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php include "../../../templates/crudHead.php"; ?>
-<title>Delete</title>
+<title>Delete Admins</title>
 </head>
 <?php require "../../templates/header.php"; ?>
 <?php

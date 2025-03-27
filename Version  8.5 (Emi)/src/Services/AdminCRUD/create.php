@@ -1,4 +1,4 @@
-<?php include '../../../templates/header.php'?>
+<?php include '../../../templates/crudHead.php'?>
 <title>Create</title>
 </head>
 <body>

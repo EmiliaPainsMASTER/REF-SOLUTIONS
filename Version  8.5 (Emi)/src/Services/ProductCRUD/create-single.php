@@ -1,12 +1,7 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create product form</title>
-    <link rel="stylesheet" href="../../../public/assets/css/main.css">
-    <link rel="stylesheet" href="../../../public/assets/css/layout.css">
+<?php include '../../../templates/crudHead.php'?>
+<title>Create</title>
 </head>
-<?php require "../../templates/header.php"; ?>
+<?php require "../../../templates/header.php"; ?>
 <?php
 require "../../DBtoPages/common.php";
 require_once '../../DBtoPages/DBconnect.php';
@@ -54,6 +49,6 @@ if (isset($_POST['submit'])) {
     </div>
     <a href="../../../public/product.php">Back to Products List</a>
 </section>
-<?php require "../../templates/footer.php"; ?>
+<?php require "../../../templates/footer.php"; ?>
 </body>
 </html>

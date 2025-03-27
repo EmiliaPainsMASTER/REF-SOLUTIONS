@@ -1,10 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Purchase</title>
-    <link rel="stylesheet" href="../../../public/assets/css/main.css">
-    <link rel="stylesheet" href="../../../public/assets/css/layout.css">
+<?php include '../../../templates/crudHead.php'?>
+<title>Delete Purchase</title>
 </head>
 <?php
 require "../../DBtoPages/common.php";

@@ -2,11 +2,9 @@
 <title>Update Admins</title>
 </head>
 
-
-
 <?php
-include "../../templates/header.php";
-require "../../templates/loadAllFromAdminTable.php";
+include "../../../templates/header.php";
+require "../../../templates/loadAllFromAdminTable.php";
 ?>
 <body>
 <section class="container">
@@ -34,6 +32,6 @@ require "../../templates/loadAllFromAdminTable.php";
         </tbody>
     </table>
 </section>
-<?php include '../../templates/footer.php' ?>
+<?php include '../../../templates/footer.php' ?>
 </body>
 </html>
