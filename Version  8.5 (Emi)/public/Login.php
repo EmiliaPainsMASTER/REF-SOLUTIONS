@@ -1,6 +1,6 @@
 <?php
-require_once '../src/Core/Database/DBconnect.php';
-require_once '../src/Models/User.php';
+require_once SRC_CORE_PATH . 'Database/DBconnect.php';
+require_once BASE_PATH . 'src/Models/User.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="assets/css/layout.css">
 </head>
 <body>
-<?php include '../templates/header.php' ?>
+<?php include BASE_PATH . 'templates/header.php' ?>
 <section>
     <h2 class="title">Login</h2>
     <div class="container">
@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <input type="submit" value="Submit">
         </form>
+        <p>Don't have an account? <a href="Register.php">Register</a></p>
     </div>
 </section>
 <?php include '../templates/footer.php' ?>

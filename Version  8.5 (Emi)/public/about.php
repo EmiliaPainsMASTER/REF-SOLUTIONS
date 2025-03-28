@@ -8,13 +8,13 @@
     <title>About Us</title>
 </head>
 <body>
-<?php include '../templates/header.php' ?>
+<?php include BASE_PATH . 'templates/header.php' ?>
 <section>
     <h1>About Us</h1>
     <h3>Who We are</h3>
     <p>We are REF Solutions a company created for technophiles and enthusiasts alike, presently we sell servers that allow our uses to host web, email, file, and game servers</p>
 </section>
-<?php include '../templates/footer.php' ?>
+<?php include BASE_PATH .'templates/footer.php' ?>
 </body>
 </html>
 <?php

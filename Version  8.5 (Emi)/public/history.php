@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="assets/css/layout.css">
 </head>
 <body>
-    <?php include '../templates/header.php' ?>
+    <?php include BASE_PATH . 'templates/header.php' ?>
     <section>
         <h2 class="title">History of Purchased Items</h2>
         <div class="container">
             <p>No items purchased yet.</p>
         </div>
     </section>
-    <?php include '../templates/footer.php' ?>
+    <?php include BASE_PATH . 'templates/footer.php' ?>
 </body>
 </html>

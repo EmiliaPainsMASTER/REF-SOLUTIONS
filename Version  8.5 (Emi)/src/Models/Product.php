@@ -118,13 +118,13 @@ class Product
         $stmt->execute();
     }
     public function displayProducts(){
-        echo "<br>--------------------------------------------------------------------------";
-        echo "<br>Product Details";
-        echo "<br>Product ID:    " . $this->getProductID();
-        echo "<br>Product Price: " . $this->getproductPrice();
-        echo "<br><br><img src=\"" . $this->getProductImage() . "\" alt=\"Product Image\">";
-        echo "<br><br>Product Name:  " . $this->getproductName();
-        echo "<br>Product Description:  " . $this->getproductDesc();
+        echo "<div class='productdisplay'>";
+        echo "<img src=\"" . $this->getProductImage() . "\" alt=\"Product Image\">";
+        echo "<h3>" . $this->getProductName() . "</h3>";
+        echo "<p>" . $this->getProductDesc() . "</p>";
+        echo "<p><strong>Price:</strong> $" . $this->getProductPrice() . "</p>";
+        echo "<button>Add to Cart</button>";
+        echo "</div>";
     }
 
 }
