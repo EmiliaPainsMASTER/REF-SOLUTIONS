@@ -5,7 +5,6 @@
     <a href="../sell.php">Sell Products</a>
     <a href="../history.php">History Items</a>
     <a href="../Login.php">Login</a>
-    <a href="../Register.php">Register</a>
     <form class="searchbar" action="">
         <input type="text" placeholder="Search..">
     </form>

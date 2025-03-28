@@ -11,7 +11,6 @@
 <?php include 'templates/header.php'; ?>
 <section>
     <div class="contain_product">
-        //READ
         <?php
         include 'DBtoObjects/ProductsClassObject.php';
         include 'DBtoPages/DBconnect.php';
@@ -27,16 +26,6 @@
             echo "<p>No products found!</p>";
         }
         ?>
-        //END READ
-        //Create
-
-        //END Create
-        //Update
-
-        //END Update
-        //Delete
-
-        //END Delete
     </div>
 </section>
 <?php include 'templates/footer.php'; ?>

@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <input type="submit" value="Submit">
         </form>
+        <p>Don't have an account? <a href="Register.php">Register</a></p>
     </div>
 </section>
 <?php include 'templates/footer.php' ?>
