@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 24, 2025 at 12:13 AM
--- Server version: 9.1.0
+-- Generation Time: Mar 21, 2025 at 10:39 AM
+-- Server version: 11.7.2-MariaDB
 -- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `adminID` int NOT NULL,
+  `adminID` int(11) NOT NULL,
   `name` text NOT NULL,
-  `email` int NOT NULL,
-  `password` text
+  `email` int(11) NOT NULL,
+  `password` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `products` (
-  `ProductID` int NOT NULL,
+  `ProductID` int(11) NOT NULL,
   `Price` double NOT NULL,
   `Image` varchar(100) NOT NULL,
   `ProductName` varchar(100) NOT NULL,
@@ -53,11 +53,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ProductID`, `Price`, `Image`, `ProductName`, `ProductDesc`) VALUES
-(1, 2499.99, 'img/cisco_ucs.jpg', 'Cisco UCS', 'Cisco product'),
-(2, 1299.99, 'img/hpe_proliant.jpg', 'HPE ProLiant Series', 'Versatile and manageable'),
-(3, 1500, 'img/dell_poweredge.jpg', 'Dell Poweredge', 'It\'s a Dell!'),
-(4, 800, 'img/ibm_power_systems.jpg', 'IBM Power Systems', 'International British Machine'),
-(5, 999.51, 'img/lenovo_thinksystem.jpg', 'Lenovo Thinksystem', 'This server thinks? I think?');
+(1, 2499.99, '/img/cisco_ucs.jpg', 'Cisco UCS', 'Cisco product'),
+(2, 1299.99, '/img/hpe_proliant.jpg', 'HPE ProLiant Series', 'Versatile, manageable, and robust. Suitable for various workloads and environments.'),
+(3, 1500, '/img/dell_poweredge.jpg', 'Dell Poweredge', 'It\'s a Dell!'),
+(4, 800, '/img/ibm_power_systems.jpg', 'IBM Power Systems', 'International British Machine'),
+(5, 999.51, '/img/lenovo_thinksystem.jpg', 'Lenovo Thinksystem', 'This server thinks? I think?');
 
 -- --------------------------------------------------------
 
@@ -66,11 +66,11 @@ INSERT INTO `products` (`ProductID`, `Price`, `Image`, `ProductName`, `ProductDe
 --
 
 CREATE TABLE `purchase` (
-  `PurchaseID` int NOT NULL,
+  `PurchaseID` int(11) NOT NULL,
   `Date` date NOT NULL,
-  `AccountID` int NOT NULL,
-  `ProductID` int NOT NULL,
-  `Quantity` int NOT NULL,
+  `AccountID` int(11) NOT NULL,
+  `ProductID` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
   `Total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -81,7 +81,7 @@ CREATE TABLE `purchase` (
 --
 
 CREATE TABLE `user` (
-  `userID` int NOT NULL,
+  `userID` int(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `FName` varchar(40) NOT NULL,
   `SName` varchar(40) NOT NULL,
@@ -136,25 +136,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProductID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `PurchaseID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `PurchaseID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
