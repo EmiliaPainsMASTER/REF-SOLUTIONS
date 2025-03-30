@@ -1,11 +1,11 @@
-<?php include '../../../templates/crudHead.php'?>
+<?php include BASE_PATH . 'templates/crudHead.php'?>
 <title>Create User</title>
 </head>
-<?php require "../../templates/header.php"; ?>
+<?php require BASE_PATH . "templates/header.php"; ?>
 <?php
-require "../../DBtoPages/common.php";
-require_once '../../DBtoPages/DBconnect.php';
-require_once '../../DBtoObjects/User.php';
+require  BASE_PATH . "src/Core/Utilities/common.php";
+require_once BASE_PATH . 'src/Core/Database/DBconnect.php';
+require_once BASE_PATH . 'src/Models/User.php';
 
 if (isset($_POST['submit'])) {
     try {
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         $user->setPassword($_POST['password']);
         $user->setAge($_POST['age']);
         if ($user->insertDB($connection)) {
-            header("Location: ../../index.php");
+            header("Location: " . BASE_PATH . 'public/index.php');
             exit;
         } else {
             echo "Failed to create a new user.";
@@ -51,6 +51,6 @@ if (isset($_POST['submit'])) {
     </div>
     <a href="../../../public/index.php">Back to Users</a>
 </section>
-<?php require "../../../templates/footer.php"; ?>
+<?php require BASE_PATH .  "templates/footer.php"; ?>
 </body>
 </html>

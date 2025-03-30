@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="assets/css/layout.css">
 </head>
 <body>
-    <?php include '../templates/header.php' ?>
+    <?php include BASE_PATH . 'templates/header.php' ?>
     <section>
         <?php
-        require "../src/Core/Utilities/common.php";
-        require_once '../src/Core/Database/DBconnect.php';
-        require_once '../src/Models/User.php';
+        require BASE_PATH . "src/Core/Utilities/common.php";
+        require_once BASE_PATH . 'src/Core/Database/DBconnect.php';
+        require_once BASE_PATH . 'src/Models/User.php';
 
         if (isset($_POST['submit'])) {
             try {
@@ -57,7 +57,7 @@
             </form>
         </div>
     </section>
-    <?php include 'templates/footer.php' ?>
+    <?php include BASE_PATH . 'templates/footer.php' ?>
 </body>
 </html>
 

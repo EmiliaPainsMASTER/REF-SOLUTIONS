@@ -1,6 +1,6 @@
 <?php
-include '../src/Models/Product.php';
-include '../src/Core/Database/DBconnect.php';
+include BASE_PATH . 'src/Models/Product.php';
+include BASE_PATH . 'src/Core/Database/DBconnect.php';
 
 if (isset($_GET['query'])) {
     $searchQuery = trim($_GET['query']);
@@ -32,7 +32,7 @@ if (isset($_GET['query'])) {
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<?php include '../templates/header.php'; ?>
+<?php include BASE_PATH . 'templates/header.php'; ?>
 
 <section>
     <div class="contain_product">
@@ -48,6 +48,6 @@ if (isset($_GET['query'])) {
     </div>
 </section>
 
-<?php include '../templates/footer.php'; ?>
+<?php include BASE_PATH . 'templates/footer.php'; ?>
 </body>
 </html>

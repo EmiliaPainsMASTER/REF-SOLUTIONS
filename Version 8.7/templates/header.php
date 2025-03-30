@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <header class="navbar">
     <a href="../public/index.php">Home</a>
     <a href="../public/about.php">About Us</a>
