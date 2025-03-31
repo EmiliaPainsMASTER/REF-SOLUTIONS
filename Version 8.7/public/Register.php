@@ -1,3 +1,30 @@
+
+<?php
+include '../templates/header.php';
+require BASE_PATH . "src/Core/Utilities/common.php";
+require_once BASE_PATH . 'src/Core/Database/DBconnect.php';
+require_once BASE_PATH . 'src/Models/User.php';
+
+if (isset($_POST['submit'])) {
+    try {
+        $user = new User();
+        $user->setFName($_POST['fname']);
+        $user->setSName($_POST['sname']);
+        $user->setEmail($_POST['email']);
+        $user->setPassword($_POST['password']);
+        $user->setAge($_POST['dob']);
+
+        if ($user->insertDB($connection)) {
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "Failed to create a new user.";
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,35 +33,10 @@
     <title>Register</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/form.css">
 </head>
 <body>
-    <?php include BASE_PATH . 'templates/header.php' ?>
     <section>
-        <?php
-        require BASE_PATH . "src/Core/Utilities/common.php";
-        require_once BASE_PATH . 'src/Core/Database/DBconnect.php';
-        require_once BASE_PATH . 'src/Models/User.php';
-
-        if (isset($_POST['submit'])) {
-            try {
-                $user = new User();
-                $user->setFName($_POST['fname']);
-                $user->setSName($_POST['sname']);
-                $user->setEmail($_POST['email']);
-                $user->setPassword($_POST['password']);
-                $user->setAge($_POST['dob']);
-
-                if ($user->insertDB($connection)) {
-                    header("Location: index.php");
-                    exit;
-                } else {
-                    echo "Failed to create a new user.";
-                }
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-        }
-        ?>
         <h2 class="title">Register</h2>
 
         <div class="container">

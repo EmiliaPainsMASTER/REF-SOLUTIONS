@@ -2,8 +2,6 @@
 Consolidation of css files will solve headaches line 4-9 is global and affects all pages
 */
 html {
-  height: 100%;
-  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f8f9fa;
 }
@@ -11,9 +9,10 @@ html {
 header.navbar {
   background-color: #333;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 0px 10px 0px;
 }
 
 header.navbar a {
@@ -33,32 +32,23 @@ footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 10px;
   flex-shrink: 0;
+  padding: 10px 0px 10px 0px;
 }
-
-/*Styling for the form input buttons*/
-input[type="submit"] {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-/*When user hovers background color for input button changes*/
-input[type="submit"]:hover {
-  background-color: #218838;
-}
-
 /*Styling for the search bar which is inside the navigation Bar*/
-.searchbar input {
-  padding: 8px;
+.searchbar {
   border-radius: 5px;
   border: none;
 }
-
+/* Global styling for form input/select buttons */
+input, select, textarea, td {
+  width: 90%;
+  margin-top: 6px;
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 16px;
+  border: 2px solid gray;
+  border-radius: 4px;
+}
 /* Titles */
 .title {
   text-align: center;
@@ -77,17 +67,6 @@ input[type="submit"]:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-
-/* Global styling for form input/select buttons */
-input, select, textarea, td {
-  width: 90%;
-  padding: 10px;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  border: 2px solid gray;
-  border-radius: 4px;
-} 
-
 /* Container for all products */
 .contain_product {
   display: flex;

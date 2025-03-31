@@ -1,4 +1,5 @@
 <?php
+include '../templates/header.php';
 include BASE_PATH . 'src/Models/Product.php';
 include BASE_PATH . 'src/Core/Database/DBconnect.php';
 
@@ -32,8 +33,6 @@ if (isset($_GET['query'])) {
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-<?php include BASE_PATH . 'templates/header.php'; ?>
-
 <section>
     <div class="contain_product">
         <?php

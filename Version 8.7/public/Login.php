@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../templates/header.php';
 require_once BASE_PATH . 'src/Core/Database/DBconnect.php';
 require_once BASE_PATH . 'src/Models/User.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -10,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $user = User::authentication($email, $password, $connection);
             if ($user) {
-                $_SESSION['user'] = $email;
+                $_SESSION['userID'] = $user->getUserID();
+                $_SESSION['email'] = $email;
                 $_SESSION['Active'] = true;
                 header("Location: index.php");
                 exit;
@@ -29,14 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/form.css">
 </head>
 <body>
-<?php include BASE_PATH . 'templates/header.php' ?>
 <section>
     <h2 class="title">Login</h2>
     <div class="container">
         <form method="post" action="Login.php">
-            <label for="email">Email: </label>
+
+            <label for="email">Email: </label><br>
             <input type="email" id="email" name="email" placeholder="Email" required>
 
             <label for="password">Password: </label>

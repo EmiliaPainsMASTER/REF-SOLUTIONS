@@ -7,6 +7,8 @@ class Purchase
     public $purchaseTotal;
     public $purchaseDate;
     public $purchaseQuantity;
+    public $accountID;
+    public $productID;
     //var declaration end
     //getter/setter start
     /**
@@ -20,9 +22,23 @@ class Purchase
         $purchase->setPurchaseTotal($row['Total']);
         $purchase->setPurchaseDate($row['Date']);
         $purchase->setPurchaseQuantity($row['Quantity']);
+        $purchase->setAccountID($row['AccountID']);
+        $purchase->setProductID($row['ProductID']);
         return $purchase;
     }
 
+    public function getAccountID(){
+        return $this->accountID;
+    }
+    public function setAccountID($accountID){
+        $this->accountID = $accountID;
+    }
+    public function getProductID(){
+        return $this->productID;
+    }
+    public function setProductID($productID){
+        $this->productID = $productID;
+    }
     public function getPurchaseID()
     {
         return $this->purchaseID;
@@ -73,15 +89,21 @@ class Purchase
     }
     //TODO figure out a fix for line 74?
     public function insertDB($dbConnection){
-        $sql = "INSERT INTO purchase (Total, Date, Quantity) VALUES (:total, :date, :quantity)";
+        $sql = "INSERT INTO purchase (Total, Date, Quantity, AccountID, ProductID) 
+            VALUES (:total, :date, :quantity, :accountID, :productID)";
         $stmt = $dbConnection->prepare($sql);
+
         $total = $this->getPurchaseTotal();
         $date = $this->getPurchaseDate();
         $quantity = $this->getPurchaseQuantity();
+        $accountID = $this->getAccountID();
+        $productID = $this->getProductID();
 
         $stmt->bindParam(':total', $total);
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':quantity', $quantity);
+        $stmt->bindParam(':accountID', $accountID);
+        $stmt->bindParam(':productID', $productID);
 
         $stmt->execute();
         $this->setPurchaseID($dbConnection->lastInsertId());
@@ -100,17 +122,21 @@ class Purchase
         return $purchases;
     }
     public function updateDB($dbConnection) {
-        $sql = "UPDATE purchase SET Total = :total, Date = :date, Quantity = :quantity WHERE PurchaseID = :id";
+        $sql = "UPDATE purchase SET Total = :total, Date = :date, Quantity = :quantity, AccountID = :accountID, ProductID = :productID WHERE PurchaseID = :id";
         $stmt = $dbConnection->prepare($sql);
         //Store getter values into variables
         $id = $this->getPurchaseID();
         $total = $this->getPurchaseTotal();
         $date = $this->getPurchaseDate();
         $quantity = $this->getPurchaseQuantity();
+        $accountID = $this->getAccountID();
+        $productID = $this->getProductID();
         //Bind variables to the attributes
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':total', $total);
         $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':accountID', $accountID);
+        $stmt->bindParam(':productID', $productID);
         $stmt->bindParam(':quantity', $quantity);
         //EXECUTE!
         return $stmt->execute();
@@ -122,13 +148,30 @@ class Purchase
         $stmt->bindParam(':id', $this->getPurchaseID());
         return $stmt->execute();
     }
-    public function displayPurchases(){
+    public function displayPurchases(Product $product){
         echo "<br>--------------------------------------------------------------------------";
         echo "<br>Purchase Details";
         echo "<br>Purchase ID:    " . $this->getPurchaseID();
         echo "<br>Purchase Total: " . $this->getPurchaseTotal();
         echo "<br>Purchase Date: " . $this->getPurchaseDate();
         echo "<br>Purchase Quantity: " . $this->getPurchaseQuantity();
+        echo "<br>Account ID: " . $this->getAccountID();
+        echo "<br>Product ID: " . $this->getProductID();
+        echo "<br>" . $product->getProductName();
+    }
+    public static function loadUserPurchases($accountID, $dbConnection){
+        $sql = "SELECT * FROM purchase WHERE AccountID = :accountID";
+        $stmt = $dbConnection->prepare($sql);
+        $stmt->bindParam(':accountID', $accountID);
+        $stmt->execute();
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $purchases = array();
+        foreach ($rows as $row) {
+            $purchase = self::getPurchaseClassObject($row);
+            $purchases[] = $purchase;
+        }
+        return $purchases;
     }
     //function end
 }

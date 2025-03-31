@@ -1,3 +1,10 @@
+<?php
+session_start();
+include '../templates/header.php';
+require_once BASE_PATH . 'src/Core/Database/DBconnect.php';
+require_once BASE_PATH . 'src/Models/Product.php';
+require_once BASE_PATH . 'src/Models/Purchase.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +15,29 @@
     <link rel="stylesheet" href="assets/css/layout.css">
 </head>
 <body>
-    <?php include '../templates/header.php' ?>
     <section>
         <h2 class="title">History of Purchased Items</h2>
         <div class="container">
-            <p>No items purchased yet.</p>
+            <?php
+            if (isset($_SESSION['userID'])) {
+                $userId = $_SESSION['userID'];
+                $purchases = Purchase::loadUserPurchases($userId, $connection);
+                if (!empty($purchases)) {
+                    echo '<div class="purchase-history">';
+                    foreach ($purchases as $purchase) {
+                        $product = Product::loadFromDB($purchase->getProductID(), $connection);
+                        $purchase->displayPurchases($product);
+                    }
+                    echo '</div>';
+                } else {
+                    echo '<p>No items purchased yet.</p>';
+                }
+            } else {
+                echo '<p>Please <a href="Login.php">login</a> to view your purchase history.</p>';
+            }
+            ?>
         </div>
     </section>
-    <?php include '../templates/footer.php' ?>
+    <?php include BASE_PATH . 'templates/footer.php' ?>
 </body>
 </html>
