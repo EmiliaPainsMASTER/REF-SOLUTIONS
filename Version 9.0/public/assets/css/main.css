@@ -1,0 +1,237 @@
+/*
+Consolidation of css files will solve headaches line 4-9 is global and affects all pages
+*/
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+}
+/*Styling for the navigation bar credit goes to W3Schools*/
+header.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 18px;
+}
+
+header.navbar a:hover {
+  background-color: gray;
+  border-radius: 5px;
+}
+
+/*Styling for the footer*/
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+/*Styling for the form input buttons*/
+input[type="submit"] {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+/*When user hovers background color for input button changes*/
+input[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/*Styling for the search bar which is inside the navigation Bar*/
+.searchbar input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Titles */
+.title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-top: 20px;
+}
+
+/*Styling for container which will support the flex box*/
+.container {
+  background: white;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Global styling for form input/select buttons */
+input, select, textarea, td {
+  width: 90%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 2px solid gray;
+  border-radius: 4px;
+} 
+
+/* Container for all products */
+.contain_product {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+  justify-content: flex-start; 
+  padding: 20px;
+}
+
+.productdisplay {
+  width: 250px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.productdisplay:hover {
+  transform: scale(1.05);
+}
+
+.productdisplay img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.productdisplay h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: black;
+}
+
+.productdisplay p {
+  font-size: 14px;
+  color: gray;
+}
+
+.productdisplay p strong {
+  color: black;
+  font-size: 16px;
+}
+ 
+.productdisplay button {
+  background-color: deepskyblue;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.productdisplay button:hover {
+  background-color: blue;
+}
+
+
+/* Cart styles */
+/* Cart specific styles */
+.cart-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.cart-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.cart-container th, .cart-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-container th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.cart-thumbnail {
+    max-width: 60px;
+    max-height: 60px;
+    display: block;
+    margin-top: 5px;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.update-btn, .remove-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.update-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.remove-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.continue-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.checkout-btn {
+    background-color: #FF9800;
+    color: white;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-radius: 4px;
+}
