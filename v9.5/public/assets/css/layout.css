@@ -1,0 +1,20 @@
+/* Styling for the layout eg templates (headers/footers) alongside with the sections*/
+html, body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex-shrink: 0;
+    width: 100%;
+}
+footer {
+    flex-shrink: 0;
+    width: 100%;
+}
+section {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
