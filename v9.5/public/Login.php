@@ -3,6 +3,8 @@ session_start();
 require_once '../src/Core/Database/DBconnect.php';
 require_once '../src/Models/User.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -10,8 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $user = User::authentication($email, $password, $connection);
             if ($user) {
+                
                 $_SESSION['user_id'] = $user->getUserID();
                 $_SESSION['user_email'] = $user->getEmail();
+                
+                $_SESSION['user_name'] = $user->getFName();
 
                 header("Location: index.php");
                 exit;

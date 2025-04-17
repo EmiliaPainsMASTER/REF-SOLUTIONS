@@ -183,18 +183,50 @@ class User
     }
     
     public function getPurchaseHistory($dbConnection) {
-    // Get the email of the current user
     $userEmail = $this->getEmail();
-
-    // Fetch all orders where the email matches the user's email
-    $sql = "SELECT * FROM orders WHERE Email = :email";
-    $stmt = $dbConnection->prepare($sql);
-    $stmt->bindParam(':email', $userEmail);
-    $stmt->execute();
     
-    // Return the result
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    try {
+        // Get complete order details with product information
+        $sql = "SELECT o.OrderID, o.CustomerName, o.Address, o.Email,
+                       oi.ProductID, oi.Quantity, oi.Price,
+                       p.ProductName
+                FROM orders o
+                JOIN order_items oi ON o.OrderID = oi.OrderID
+                JOIN products p ON oi.ProductID = p.ProductID
+                WHERE o.Email = :email
+                ORDER BY o.OrderID DESC";
+        
+        $stmt = $dbConnection->prepare($sql);
+        $stmt->bindParam(':email', $userEmail, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        // Group items by order
+        $orders = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $orderID = $row['OrderID'];
+            if (!isset($orders[$orderID])) {
+                $orders[$orderID] = [
+                    'OrderID' => $orderID,
+                    'CustomerName' => $row['CustomerName'],
+                    'Address' => $row['Address'],
+                    'Email' => $row['Email'],
+                    'Items' => []
+                ];
+            }
+            $orders[$orderID]['Items'][] = [
+                'ProductID' => $row['ProductID'],
+                'ProductName' => $row['ProductName'],
+                'Quantity' => $row['Quantity'],
+                'Price' => $row['Price']
+            ];
+        }
+        
+        return array_values($orders);
+    } catch (PDOException $e) {
+        error_log("Error fetching purchase history: " . $e->getMessage());
+        return [];
+    }
+}   
 
     public function displayUsers(){
         echo "<br>--------------------------------------------------------------------------";

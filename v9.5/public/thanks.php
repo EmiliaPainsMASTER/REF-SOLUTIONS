@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
         // 3. Clear the cart
         $_SESSION['cart'] = [];
         $_SESSION['cart_count'] = 0;
-        $_SESSION['message'] = "Thank you for your purchase! Order #$orderID has been placed.";
 
     } catch (Exception $e) {
         $_SESSION['message'] = "Error processing order: " . $e->getMessage();
@@ -51,9 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
 <section class="thankyou-container">
     <h2>Order Confirmation</h2>
     <p><?= $_SESSION['message'] ?? 'Thank you!' ?></p>
-    <a href="product.php" class="button">Back to Products</a>
 </section>
-<?php require_once '../templates/footer.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,6 @@
 <header class="navbar">
 
-    <!-- Hamburger Section: group checkbox, label and menu together -->
+    <!-- Hamburger Section -->
     <div class="hamburger-wrapper">
         <input type="checkbox" id="hamburger-toggle" class="hamburger-checkbox">
         <label for="hamburger-toggle" class="hamburger">
@@ -10,15 +10,23 @@
             <a href="../public/about.php">About Us</a>
             <a href="../old/sell.php">Sell Products</a>
             <a href="../public/history.php">History Items</a>
+            <a href="../public/admin_login.php">Admin Login</a>
         </div>
     </div>
 
-    <!-- Other navigation links -->
+    <!-- Left navigation -->
     <a href="../public/index.php">Home</a>
     <a href="../public/product.php">Buy Products</a>
-    <a href="../public/Login.php">Login</a>
+    <?php if (isset($_SESSION['user_name'])): ?>
+    <span class="logged-user">Welcome <?= $_SESSION['user_name']; ?></span>
+    <a href="../public/logout.php">Log Out</a>
+        <?php else: ?>
+            <a href="../public/Login.php">Login</a>
+        <?php endif; ?>
 
-    <a href="../public/cart_view.php">
+
+    <!-- Cart Icon -->
+    <a href="../public/cart_view.php" class="cart-link">
         <img src="../public/assets/img/cart.png" alt="Shopping Cart">
         <?php 
         if (!empty($_SESSION['cart'])) {
@@ -28,6 +36,7 @@
         ?>
     </a>
 
+    <!-- Search -->
     <form class="searchbar" action="../public/search.php" method="GET">
         <input type="text" name="query" placeholder="Search.." required>
     </form>

@@ -40,12 +40,12 @@
                 $products[] = Product::getProductsClassObject($row);
             }
 
-            echo "<h2>Showing products for brand: <strong>" . htmlspecialchars($brand) . "</strong></h2>";
+            echo "Showing products for brand: " . $brand . "</h2>";
 
         } else {
             // Load all products
             $products = Product::loadAllFromDB($connection);
-            echo "<h2>All Products</h2>";
+            
         }
 
         // Display products
@@ -53,7 +53,7 @@
             foreach ($products as $product) {
                 $product->displayProducts();
             }
-            echo "<p>Total Products: " . count($products) . "</p>";
+            
         } else {
             echo "<p>No products found!</p>";
         }

@@ -67,6 +67,14 @@ input[type="submit"]:hover {
   margin-top: 20px;
 }
 
+/*user name in header*/
+.logged-user {
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+
 /*Styling for container which will support the flex box*/
 .container {
   background: white;

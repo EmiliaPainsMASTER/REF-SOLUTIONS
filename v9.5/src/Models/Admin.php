@@ -77,6 +77,23 @@ class Admin
             return null;
         }
     }
+    
+    public static function authenticate($email, $password, $dbConnection) {
+    $sql = "SELECT * FROM admin WHERE email = :email AND password = :password";
+    $stmt = $dbConnection->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $password); // You should hash passwords in real apps!
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        return self::getAdminClassObject($row);
+    } else {
+        return null;
+    }
+}
+
+    
     public function insertDB($dbConnection){
         $sql = "INSERT INTO admin (name, email, password) VALUES (:name, :email, :password)";
         $stmt = $dbConnection->prepare($sql);
