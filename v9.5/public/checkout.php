@@ -10,7 +10,7 @@ if (empty($_SESSION['cart'])) {
 
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/layout.css">
-<section class="checkout-container">
+    <section class="checkout-container">
     <h2>Checkout</h2>
     
     <form method="post" action="thanks.php">

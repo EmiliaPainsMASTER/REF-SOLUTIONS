@@ -1,7 +1,4 @@
-<?php 
-session_start();
-$productArray = array("cisco_ucs","dell_poweredge","hpe_proliant","ibm_power_systems","lenovo_thinksystem");
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,16 +9,35 @@ $productArray = array("cisco_ucs","dell_poweredge","hpe_proliant","ibm_power_sys
     <link rel="stylesheet" href="assets/css/layout.css">
 </head>
 <body>
-    <?php include '../templates/header.php' ?>
-    <section>
-        <h2>Our Top Five bestsellers!</h2>
-        <div class="product" id="product2">
-            <?php
-                for ($count = 0; $count <= 4; $count++) {
-                    echo '<img src="assets/img/' . $productArray[$count] . '.jpg">';
-            }?>
-        </div>
+    <?php include '../templates/header.php'; ?>
+
+    <!-- Top Product Display -->
+    <section class="top-product">
+        <h2>Most Expensive Bestseller</h2>
+        <img src="assets/img/ibm_power_systems.jpg" alt="IBM Power Systems">
+        <h3>IBM Power Systems</h3>
+        <p>Price: $4,000.00</p>
+        <a href="product.php?brand=IBM" class="buy-button">Buy Now</a>
     </section>
-    <?php include '../templates/footer.php' ?>
+
+    <!-- Brand Images -->
+    <section class="brands">
+        <a href="product.php?brand=HP">
+            <img src="assets/img/hp.png" alt="HP">
+        </a>
+        <a href="product.php?brand=Cisco">
+            <img src="assets/img/cisco.jpeg" alt="Cisco">
+        </a>
+        <a href="product.php?brand=Asus">
+            <img src="assets/img/asus.jpeg" alt="Asus">
+        </a>
+    </section>
+
+    <!-- Go to Product Page Button -->
+    <div class="product-page-btn">
+        <a href="product.php">Go to Product Page</a>
+    </div>
+
+    <?php include '../templates/footer.php'; ?>
 </body>
 </html>
