@@ -1,8 +1,8 @@
 <?php
 /* 
- * E-Commerce Validation Tests
+ * Validation Tests
  * A simple script to check if our online store's validation works properly
- * Tests 5 important validation rules (1 point each)
+ * Tests 5 important validation rules
  */
 
 // Let's get all the files we need first
