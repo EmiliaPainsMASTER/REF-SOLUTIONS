@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
         // 3. Clear the cart
         $_SESSION['cart'] = [];
         $_SESSION['cart_count'] = 0;
+        $_SESSION['message'] = "Thank you for your purchase! Order #$orderID has been placed.";
 
     } catch (Exception $e) {
         $_SESSION['message'] = "Error processing order: " . $e->getMessage();
@@ -45,61 +46,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
 }
 ?>
 
-<?php require_once '../templates/header.php'; ?>
+
 <link rel="stylesheet" href="assets/css/main.css">
-<section class="thankyou-container">
-    <h2>Order Confirmation</h2>
-    <p><?= $_SESSION['message'] ?? 'Thank you!' ?></p>
-</section>
+<link rel="stylesheet" href="assets/css/thanks.css">
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Full Screen Image</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    .thanks_img {
-      position: relative;
-      height: 100%;
-    }
-
-    .thanks_img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .back-button {
-      position: absolute;
-      bottom: 30px;
-      left: 47%;
-      padding: 12px 30px;
-      font-size: 18px;
-      color: white;
-      background-color: red;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    .back-button:hover {
-      background-color: darkred;
-    }
+    
   </style>
 </head>
 <body>
 
   <div class="thanks_img">
     <a class="back-button" href="index.php">H O M E</a>
-    <img src="assets/img/thanks.jpg" alt="Full Screen Image">
+    <img src="assets/img/thanks.jpg" alt="Thanks Image">
   </div>
 
+<?php require_once '../templates/footer.php'; ?>
 </body>
 </html>

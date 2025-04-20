@@ -7,6 +7,11 @@ html {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f8f9fa;
 }
+body {
+  height: 100%;
+  margin: 0;
+}
+
 /*Styling for the navigation bar credit goes to W3Schools*/
 header.navbar {
   background-color: #333;
