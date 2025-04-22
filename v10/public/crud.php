@@ -4,13 +4,11 @@ require_once '../src/Core/Database/DBconnect.php';
 require_once '../src/Models/Admin.php';
 require_once '../src/Models/Product.php';
 
-// Redirect if admin is not logged in
 if (!isset($_SESSION['admin_id'])) {
     header("Location: index.php");
     exit;
 }
 
-// Handle Create or Update
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Load existing or create new
     if (!empty($_POST['product_id'])) {
@@ -19,12 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $product = new Product();
     }
 
-    // Set product values
     $product->setProductName($_POST['name']);
     $product->setProductPrice($_POST['price']);
     $product->setProductDesc($_POST['desc']);
 
-    // Image (simple input file name)
+    // Image
     if (!empty($_POST['image'])) {
         $imageName = trim($_POST['image']);
         $imagePath = "/img/" . $imageName;
@@ -44,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// Handle Delete
+// Delete
 if (isset($_GET['delete'])) {
     $product = Product::loadFromDB($_GET['delete'], $connection);
     if ($product) {
@@ -54,13 +51,12 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Load for Edit
+//Edit
 $editProduct = null;
 if (isset($_GET['edit'])) {
     $editProduct = Product::loadFromDB($_GET['edit'], $connection);
 }
 
-// Load All Products
 $products = Product::loadAllFromDB($connection);
 ?>
 <!DOCTYPE html>

@@ -48,7 +48,7 @@ require_once '../templates/header.php';
                 foreach ($_SESSION['cart'] as $productId => $item): 
                     $product = $item['product'];
                     $quantity = $item['quantity'];
-                    // Ensure $product is an array
+                
                     if (is_object($product)) {
                         $product = [
                             'name' => $product->productName ?? '',

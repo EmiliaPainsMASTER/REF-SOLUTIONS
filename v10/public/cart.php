@@ -1,5 +1,5 @@
 <?php
-// cart.php
+
 session_start();
 require_once '../src/Models/Product.php';
 require_once '../src/Core/Database/DBconnect.php';
@@ -9,31 +9,28 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Handle actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         if (isset($_POST['action']) && isset($_POST['product_id'])) {
             $productId = (int)$_POST['product_id'];
             $action = $_POST['action'];
             
-            // Validate product ID
             if ($productId <= 0) {
                 throw new Exception("Invalid product ID");
             }
 
-            // Load product from database
+            // Loading product from DB
             $product = Product::loadFromDB($productId, $connection);
             
             if (!$product) {
                 throw new Exception("Product not found");
             }
 
-            // Convert product to array for session storage
+            // Converting product to array for session storage
             $productData = [
                 'id' => $product->getProductID(),
                 'name' => $product->getProductName(),
                 'price' => $product->getProductPrice(),
-             //   'image' => $product->getProductImage(),
                 'desc' => $product->getProductDesc()
             ];
 
@@ -44,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $quantity = (int)$_POST['quantity'];
                     }
 
-                    // Basic quantity validation
+                    // quantity validation
                     if ($quantity < 1) {
                         $_SESSION['error'] = "Please add at least 1 item";
                         header("Location: cart_view.php");
@@ -111,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Calculate total items in cart for the counter
+//total items calculation 
 $cartCount = 0;
 foreach ($_SESSION['cart'] as $item) {
     $cartCount += $item['quantity'];
@@ -133,6 +130,11 @@ foreach ($_SESSION['cart'] as $productId => $item) {
 }
 
 // Redirect back to previous page
-$redirectUrl = $_SERVER['HTTP_REFERER'] ?? 'product.php';
-header("Location: $redirectUrl");
+if (isset($_SERVER['HTTP_REFERER'])) {
+    $go_back = $_SERVER['HTTP_REFERER'];
+} else {
+    $go_back = 'product.php';
+}
+
+header("Location: $go_back");
 exit();

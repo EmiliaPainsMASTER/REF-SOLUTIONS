@@ -11,7 +11,6 @@
 <body>
     <?php include '../templates/header.php'; ?>
 
-    <!-- Top Product Display -->
     <section class="top-product">
         <img src="assets/img/ibm.jpg" alt="IBM Power Systems">
         <h3>IBM Power Systems</h3>
@@ -19,7 +18,6 @@
         <a href="product.php?brand=IBM" class="buy-button">Buy Now</a>
     </section>
 
-    <!-- Brand Images -->
     <section class="brands">
         <a href="product.php?brand=HP">
             <img src="assets/img/hp.png" alt="HP">
@@ -32,7 +30,6 @@
         </a>
     </section>
 
-    <!-- Go to Product Page Button -->
     <div class="product-page-btn">
         <a href="product.php">Show all Products</a>
     </div>

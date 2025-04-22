@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../src/Core/Database/DBconnect.php'; // DB connection
-require_once '../src/Models/Product.php'; // Product model
+require_once '../src/Core/Database/DBconnect.php'; 
+require_once '../src/Models/Product.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
     try {
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
         $address = $_POST['address'];
         $email = $_POST['email'];
 
-        // 1. Insert order details
+        //Insert order
         $stmt = $connection->prepare("INSERT INTO orders (CustomerName, Address, Email) VALUES (:name, :address, :email)");
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':address', $address);
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
         $stmt->execute();
         $orderID = $connection->lastInsertId();
 
-        // 2. Insert each product in cart
+        //Insert each product in cart
         $stmtItem = $connection->prepare("INSERT INTO order_items (OrderID, ProductID, Quantity, Price) VALUES (:orderID, :productID, :quantity, :price)");
 
         foreach ($_SESSION['cart'] as $productId => $item) {
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['cart'])) {
             $stmtItem->execute();
         }
 
-        // 3. Clear the cart
+        //Clear cart
         $_SESSION['cart'] = [];
         $_SESSION['cart_count'] = 0;
         $_SESSION['message'] = "Thank you for your purchase! Order #$orderID has been placed.";

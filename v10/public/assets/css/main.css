@@ -370,3 +370,20 @@ input, select, textarea, td {
   font-weight: bold;
   border-radius: 5px;
 }
+
+/* Back Button */
+
+.back_button {
+    margin: 10px;
+    padding: 0px 10px;
+    background-color: darkgrey;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.back_button:hover {
+    background-color: grey;     
+}

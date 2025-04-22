@@ -15,10 +15,8 @@
 ?>
 
 <!-- Back Button -->
-<div style="margin: 20px;">
-    <a href="index.php" style="padding: 10px 20px; background-color: #ccc; border-radius: 5px; text-decoration: none; color: black; font-weight: bold;">
-        ← Back
-    </a>
+<div class="back_button">
+    <a href="index.php" class="back_button">Back</a>
 </div>
 
 <section>
