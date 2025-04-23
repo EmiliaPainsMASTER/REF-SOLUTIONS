@@ -2,8 +2,8 @@
 -- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 15, 2025 at 12:33 AM
+-- Host: localhost
+-- Generation Time: Apr 23, 2025 at 06:41 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.1.10
 
@@ -55,7 +55,8 @@ INSERT INTO `orders` (`OrderID`, `CustomerName`, `Address`, `Email`) VALUES
 (1, 'rob', 'sf tseebe ', 'rob@gmail.com'),
 (2, 'Ruben Sob', '32 street', 'ruben@gmail.com'),
 (3, 'rub', '32 rfer', 'sob@gmail.com'),
-(4, 'sdfsdf', 'sdfsdf', 'rob@gmail.com');
+(4, 'sdfsdf', 'sdfsdf', 'rob@gmail.com'),
+(5, 'Kobena', 'Adamstown', 'rob@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,10 @@ INSERT INTO `order_items` (`OrderItemID`, `OrderID`, `ProductID`, `Quantity`, `P
 (1, 1, 3, 1, 1500.00),
 (2, 2, 3, 1, 1500.00),
 (3, 3, 4, 1, 800.00),
-(4, 4, 3, 1, 1500.00);
+(4, 4, 3, 1, 1500.00),
+(5, 5, 2, 1, 1299.99),
+(6, 5, 7, 1, 2199.00),
+(7, 5, 4, 1, 800.00);
 
 -- --------------------------------------------------------
 
@@ -103,8 +107,23 @@ INSERT INTO `products` (`ProductID`, `Price`, `Image`, `ProductName`, `ProductDe
 (1, 2499.99, '/img/cisco_ucs.jpg', 'Cisco UCS', 'Cisco product'),
 (2, 1299.99, '/img/hpe_proliant.jpg', 'HPE ProLiant Series', 'Versatile, manageable, and robust. Suitable for various workloads and environments.'),
 (3, 1500, '/img/dell_poweredge.jpg', 'Dell Poweredge', 'It\'s a Dell!'),
-(4, 800, '/img/ibm_power_systems.jpg', 'IBM Power Systems', 'International British Machine'),
-(5, 999.51, '/img/lenovo_thinksystem.jpg', 'Lenovo Thinksystem', 'This server thinks? I think?');
+(4, 800, '/img/ibm.jpg', 'IBM Power Systems', 'International British Machine'),
+(5, 999.51, '/img/lenovo_thinksystem.jpg', 'Lenovo Thinksystem', 'This server thinks? I think?'),
+(6, 310, '/img/hp1.jpeg', 'HP 15 Silver Fusion 15.6', 'HP 15 Silver Fusion 15.6 Touchscreen Laptop, Intel Core i3-8130U, 1TB HDD 16GB Intel Optane Memory.'),
+(7, 2199, '/img/Asus1.png', 'Asus zenbook 14', 'ASUS Zenbook 14 OLED.it is powered by Intel® Core™ Ultra 7 Processor and Intel Arc™ Graphics.'),
+(8, 3299, '/img/Asus2.png', 'Asus Zenbook Duo', 'ASUS Zenbook DUO features dual 14-inch 3K OLED. Powered by Intel® ARL H Core™ Ultra 9 Processor.'),
+(9, 499.99, '/img/hp2.png', 'HP Laptop 15', 'Windows 11 Home Processor: AMD Ryzen™ 5 7520U Memory size: 8 GB LPDDR5 Battery life: Up to 10 hours'),
+(10, 799.99, '/img/PS5.jpeg', 'PlayStation®5 Pro', 'PS5 Pro is an upgrade over PS5,faster processor, additional storage and graphics upscaling.'),
+(11, 399.99, '/img/Dell1.jpeg', 'Dell XPS 9315', 'Windows 11 Pro, 64-bit.12th Generation Intel® Core™ i5-1230U. Intel® Iris Xe Graphics. '),
+(12, 90.99, '/img/Cisco1.jpeg', 'Cisco Catalyst 2960X-48LPS-L POE Switch', 'Switch series number:2960\r\nNumber of ports:48\r\nDownlink ports: PoE enabled port\r\nCisco IOS:LAN Base'),
+(13, 230, '/img/Nintendo1.jpeg', 'Nintendo Switch Console', 'Nintendo Switch Console, 32GB + Neon Red/Blue Joy-Con, Unboxed.'),
+(14, 591.99, '/img/Server1.jpeg', '4-Post 18U Server Rack Cabinet', '4-Post 18U Server Rack Cabinet, Data Rack Cabinet for Computer Network Rack with Casters'),
+(15, 389, '/img/Sony1.jpeg', 'Sony sound bar HT-S40R', '5.1ch Home Cinema with Wireless Rear Speakers | HT-S40R'),
+(16, 1820, '/img/Lenovo1.jpeg', 'ThinkPad X13 2-in-1 Gen 5', 'ThinkPad X13 2-in-1 Gen 5 (13″ Intel)\r\nUSB-C® 65W, supports Rapid Charge\r\nLenovo Integrated Pen'),
+(17, 649.99, '/img/Lenovo2.jpg', 'Lenovo 15.6\" IdeaPad Slim 3', 'Lenovo 15.6\" IdeaPad Slim 3 | Intel Core i5 Processer | 8GB RAM | 512GB SSD | Arctic Grey'),
+(18, 1099.99, '/img/Iphone16.jpeg', 'iPhone 16 Pro Max', 'iPhone 16 Pro Max 1TB Gold color'),
+(19, 399.99, '/img/SamsungA35.jpeg', 'Samsung A35', 'Galaxy A35 5G Unlocked | 128GB | Awesome Lilac'),
+(20, 871.99, '/img/Macbook.jpeg', 'MacBook Pro 13-inch (2022)', 'MacBook Pro 13-inch (2022) - Apple M2 8-core and 10-core GPU - 8GB RAM - SSD 256GB - AZERTY');
 
 -- --------------------------------------------------------
 
@@ -203,19 +222,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `OrderID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `OrderItemID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `OrderItemID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProductID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ProductID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `purchase`
