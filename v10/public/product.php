@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,11 @@
 <!-- Back Button -->
 <div class="back_button">
     <a href="index.php" class="back_button">Back</a>
+</div>
+
+<!-- Order Limit Notice -->
+<div class="order_limit_notice">
+    <strong>Note:</strong> Customers cannot order products exceeding a total of <strong>€10,000</strong>.
 </div>
 
 <section>
@@ -43,7 +48,6 @@
         } else {
             // Load all products
             $products = Product::loadAllFromDB($connection);
-            
         }
 
         // Display products
@@ -51,7 +55,6 @@
             foreach ($products as $product) {
                 $product->displayProducts();
             }
-            
         } else {
             echo "<p>No products found!</p>";
         }

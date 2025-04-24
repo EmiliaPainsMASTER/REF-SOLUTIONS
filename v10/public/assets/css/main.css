@@ -387,3 +387,49 @@ input, select, textarea, td {
 .back_button:hover {
     background-color: grey;     
 }
+
+.order_limit_notice {
+  background-color: #ffe0e0;
+  padding: 1em;
+  margin: 1em 0;
+  border: 1px solid #ff4d4d;
+  color: #b30000;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Custom error alert styling */
+.alert-danger {
+  color: #fff;
+  background-color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.alert-danger a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.alert-danger a:hover {
+  color: #f1c40f;
+}
+
+.error-message {
+  color: #fff;
+  background-color: #e74c3c;
+  border: 1px solid #c0392b;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
