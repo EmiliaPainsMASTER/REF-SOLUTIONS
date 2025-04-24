@@ -17,4 +17,4 @@
 <?php include BASE_PATH .'templates/footer.php' ?>
 </body>
 </html>
-<?php
+<?php 

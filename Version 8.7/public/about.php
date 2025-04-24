@@ -20,4 +20,4 @@ session_start();
 <?php include '../templates/footer.php' ?>
 </body>
 </html>
-<?php
+<?php 
