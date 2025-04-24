@@ -8,7 +8,7 @@ class Purchase
     private $accountID;
     private $products; // Array to hold multiple products in a purchase
 
-    public static function getPurchaseClassObject($row)
+    public static function getPurchaseClassObject($row, $dbConnection)
     {
         $purchase = new Purchase();
         $purchase->setPurchaseID($row['PurchaseID']);
@@ -16,10 +16,13 @@ class Purchase
         $purchase->setPurchaseDate($row['Date']);
         $purchase->setPurchaseQuantity($row['Quantity']);
         $purchase->setAccountID($row['AccountID']);
-        // Load associated products from purchase_products table
-        $purchase->setProducts(self::loadProductsForPurchase($purchase->getPurchaseID()));
+
+        // Pass the $dbConnection to load products
+        $purchase->setProducts(self::loadProductsForPurchase($purchase->getPurchaseID(), $dbConnection));
+
         return $purchase;
     }
+
 
     // Getters and Setters
     public function getPurchaseID() {
@@ -120,28 +123,30 @@ class Purchase
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':userId', $userId);
         $stmt->execute();
-        
+
         $purchases = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $purchases[] = self::getPurchaseClassObject($row);
+            // Pass the connection to getPurchaseClassObject
+            $purchases[] = self::getPurchaseClassObject($row, $dbConnection);
         }
         return $purchases;
     }
 
+
     // Load associated products for a given purchase
-    public static function loadProductsForPurchase($purchaseID) {
-        global $dbConnection; // Assuming you have a $dbConnection object
+    public static function loadProductsForPurchase($purchaseID, $dbConnection) {
         $sql = "SELECT * FROM purchase_products WHERE PurchaseID = :purchaseID";
         $stmt = $dbConnection->prepare($sql);
         $stmt->bindParam(':purchaseID', $purchaseID);
         $stmt->execute();
-        
+
         $products = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $products[] = $row;
         }
         return $products;
     }
+
 
     public function displayPurchases() {
         echo "<div class='purchase'>";
