@@ -440,3 +440,90 @@ input, select, textarea, td {
 .alert-danger a:hover {
   color: #f1c40f;
 }
+
+/* Admin Product Management Styles */
+.Admin title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form textarea {
+  padding: 8px;
+  font-size: 14px;
+  
+}
+
+.product-form input[type="submit"] {
+  width: fit-content;
+  padding: 8px 16px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.product-table th,
+.product-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.product-table th {
+  background-color: #f2f2f2;
+}
+
+.delete-summary {
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+}
+
+details[open] summary {
+  margin-bottom: 5px;
+}
+
+.delete-form {
+  margin-top: 5px;
+}
+
+.confirm-delete-button {
+  color: white;
+  background: red;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border-radius: 4px;
+}
+
+.Admin error message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
