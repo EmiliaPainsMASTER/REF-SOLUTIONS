@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 24, 2025 at 03:49 PM
+-- Generation Time: Apr 24, 2025 at 02:45 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.1.10
 
@@ -30,16 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `adminID` int NOT NULL,
   `name` text NOT NULL,
-  `email` text NOT NULL,
+  `email` int NOT NULL,
   `password` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`adminID`, `name`, `email`, `password`) VALUES
-(1, 'admin', 'admin@gmail.com', 'adminpass');
 
 -- --------------------------------------------------------
 
@@ -290,7 +283,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `adminID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`

@@ -4,7 +4,6 @@ session_start();
 require_once '../src/Models/Product.php';
 require_once '../src/Core/Database/DBconnect.php';
 
-// Initialize cart if it doesn't exist
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
@@ -19,14 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception("Invalid product ID");
             }
 
-            // Loading product from DB
             $product = Product::loadFromDB($productId, $connection);
             
             if (!$product) {
                 throw new Exception("Product not found");
             }
 
-            // Converting product to array for session storage
             $productData = [
                 'id' => $product->getProductID(),
                 'name' => $product->getProductName(),
@@ -129,7 +126,6 @@ foreach ($_SESSION['cart'] as $productId => $item) {
     }
 }
 
-// Redirect back to previous page
 if (isset($_SERVER['HTTP_REFERER'])) {
     $go_back = $_SERVER['HTTP_REFERER'];
 } else {

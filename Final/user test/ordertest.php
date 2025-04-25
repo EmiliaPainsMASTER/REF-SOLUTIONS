@@ -26,9 +26,9 @@ echo "<p>Total: $".number_format($order['total'],2)."</p>";
 echo "</div>";
 
 // Update order
-$order['order_id'] = 'ORD-1001-R1'; // Revised order
-$order['products'][1]['qty'] = 3; // Added another mouse
-$order['total'] = 1059.96; // New total
+$order['order_id'] = 'ORD-1001-R1';
+$order['products'][1]['qty'] = 3; 
+$order['total'] = 1059.96; 
 
 echo "<div class='updated-order'>";
 echo "<h3>Updated Order</h3>";

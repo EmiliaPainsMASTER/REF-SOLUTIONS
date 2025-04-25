@@ -1,20 +1,18 @@
-<?php
+<?php 
 session_start();
 require_once '../src/Core/Database/DBconnect.php'; 
 require_once '../src/Models/Purchase.php';
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php'); // Redirect to login if not logged in
+    header('Location: login.php'); 
     exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
-        // Retrieve user info
         $userId = $_SESSION['user_id'];
 
-        // Calculate the total price and quantity of items in the cart
+        //total price and quantity of items in the cart
         $total = 0;
         $qty = 0;
 
@@ -23,7 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $total += $item['product']['price'] * $item['quantity'];
         }
 
-        // Step 1: Insert purchase record into 'purchases' table
+        // Checks if its more than 10,000
+        if ($total > 10000) {
+            $_SESSION['message'] = 'Your purchase is more than €10,000. Please remove some items.';
+            header('Location: cart_view.php');
+            exit();
+        }
+
         $sql = "INSERT INTO purchases (AccountID, Total, Quantity, Date) 
                 VALUES (:user_id, :total, :quantity, :purchase_date)";
         $stmt = $connection->prepare($sql);
@@ -33,10 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':purchase_date', date('Y-m-d'));
         $stmt->execute();
 
-        // Step 2: Get the last inserted PurchaseID
         $purchaseId = $connection->lastInsertId();
 
-        // Step 3: Insert products into 'purchase_products' table
         foreach ($_SESSION['cart'] as $productId => $item) {
             $product = $item['product'];
             $quantity = $item['quantity'];
@@ -52,24 +54,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute();
         }
 
-        // Step 4: Clear the cart after purchase
         $_SESSION['cart'] = [];
         $_SESSION['cart_count'] = 0;
 
-        // Redirect to the thanks page
         header('Location: thanks.php');
         exit();
 
     } catch (Exception $e) {
         $_SESSION['message'] = "Error: " . $e->getMessage();
-        header('Location: checkout.php'); // Go back to checkout if an error occurs
+        header('Location: checkout.php'); 
         exit();
     }
 }
 ?>
 
-
-<!-- Checkout Form with Radio Buttons for Payment Method and Back Button -->
 <form action="checkout.php" method="POST">
     <h2>Complete Purchase</h2>
     

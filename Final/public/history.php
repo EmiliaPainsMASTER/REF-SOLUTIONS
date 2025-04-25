@@ -3,13 +3,12 @@ session_start();
 require_once '../src/Core/Database/DBconnect.php';
 require_once '../src/Models/Purchase.php';
 
-// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
 
-// Get user's purchases
+// Get use purchases
 $userId = $_SESSION['user_id'];
 $purchases = Purchase::loadAllFromDBForUser($connection, $userId);
 ?>

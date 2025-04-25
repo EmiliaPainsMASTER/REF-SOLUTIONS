@@ -14,7 +14,7 @@
     <section class="top-product">
         <img src="assets/img/ibm.jpg" alt="IBM Power Systems">
         <h3>IBM Power Systems</h3>
-        <p>Price:€4,000.00</p>
+        <p>Price: $4,000.00</p>
         <a href="product.php?brand=IBM" class="buy-button">Buy Now</a>
     </section>
 

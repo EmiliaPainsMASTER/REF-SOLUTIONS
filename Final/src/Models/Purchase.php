@@ -6,7 +6,7 @@ class Purchase
     private $purchaseDate;
     private $purchaseQuantity;
     private $accountID;
-    private $products; // Array to hold multiple products in a purchase
+    private $products;
 
     public static function getPurchaseClassObject($row, $dbConnection)
     {
@@ -17,7 +17,7 @@ class Purchase
         $purchase->setPurchaseQuantity($row['Quantity']);
         $purchase->setAccountID($row['AccountID']);
 
-        // Pass the $dbConnection to load products
+        //$dbConnection to load products
         $purchase->setProducts(self::loadProductsForPurchase($purchase->getPurchaseID(), $dbConnection));
 
         return $purchase;
@@ -73,7 +73,6 @@ class Purchase
         $this->products = $products;
     }
 
-    // Database Methods
     public function insertDB($dbConnection) {
         $sql = "INSERT INTO purchases (Date, AccountID, Total, Quantity) 
                 VALUES (:date, :accountID, :total, :quantity)";
@@ -83,13 +82,12 @@ class Purchase
             $stmt->bindParam(':total', $this->purchaseTotal);
             $stmt->bindParam(':date', $this->purchaseDate);
             $stmt->bindParam(':quantity', $this->purchaseQuantity);
-            $stmt->bindParam(':accountId', $this->accountID);
+            $stmt->bindParam(':accountID', $this->accountID);
             $stmt->execute();
 
-            // Get the last inserted PurchaseID
+            // Getting last PurchaseID
             $this->purchaseID = $dbConnection->lastInsertId();
 
-            // Insert products into purchase_products table
             foreach ($this->products as $product) {
                 $sql = "INSERT INTO purchase_products (PurchaseID, ProductID, Quantity, Price) 
                         VALUES (:purchaseID, :productID, :quantity, :price)";
@@ -126,14 +124,12 @@ class Purchase
 
         $purchases = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Pass the connection to getPurchaseClassObject
+            //connection to getPurchaseClassObject
             $purchases[] = self::getPurchaseClassObject($row, $dbConnection);
         }
         return $purchases;
     }
 
-
-    // Load associated products for a given purchase
     public static function loadProductsForPurchase($purchaseID, $dbConnection) {
         $sql = "SELECT * FROM purchase_products WHERE PurchaseID = :purchaseID";
         $stmt = $dbConnection->prepare($sql);

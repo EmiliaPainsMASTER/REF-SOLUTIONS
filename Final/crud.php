@@ -9,17 +9,8 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-// Handle add/update product
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['delete_id'])) {
-        $product = Product::loadFromDB($_POST['delete_id'], $connection);
-        if ($product) {
-            $product->deleteDB($connection);
-        }
-        header("Location: crud.php");
-        exit;
-    }
-
+    // Load existing or create new
     if (!empty($_POST['product_id'])) {
         $product = Product::loadFromDB($_POST['product_id'], $connection);
     } else {
@@ -30,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $product->setProductPrice($_POST['price']);
     $product->setProductDesc($_POST['desc']);
 
+    // Image
     if (!empty($_POST['image'])) {
         $imageName = trim($_POST['image']);
         $imagePath = "/img/" . $imageName;
@@ -38,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "No image file.";
     }
 
+    // Insert or Update
     if (!empty($_POST['product_id'])) {
         $product->updateDB($connection);
     } else {
@@ -48,6 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+// Delete
+if (isset($_GET['delete'])) {
+    $product = Product::loadFromDB($_GET['delete'], $connection);
+    if ($product) {
+        $product->deleteDB($connection);
+    }
+    header("Location: crud.php");
+    exit;
+}
+
+//Edit
 $editProduct = null;
 if (isset($_GET['edit'])) {
     $editProduct = Product::loadFromDB($_GET['edit'], $connection);
@@ -66,16 +70,10 @@ $products = Product::loadAllFromDB($connection);
 <body>
 <?php include '../templates/header.php'; ?>
 <section>
-    <h2 class="Admin title"Admin Manage Products</h2>
-    <?php if (isset($_SESSION['error'])): ?>
-        <div class="Admin error message">
-            <?= htmlspecialchars($_SESSION['error']); ?>
-        </div>
-        <?php unset($_SESSION['error']); ?>
-    <?php endif; ?>
-    
+    <h2 class="title">Manage Products</h2>
     <div class="container">
-        <form method="post" action="crud.php" enctype="multipart/form-data" class="product-form">
+
+        <form method="post" action="crud.php" enctype="multipart/form-data">
             <label for="name">Product Name:</label>
             <input type="text" name="name" required value="<?= $editProduct ? $editProduct->getProductName() : '' ?>">
 
@@ -97,7 +95,7 @@ $products = Product::loadAllFromDB($connection);
         </form>
 
         <h3>All Products</h3>
-        <table class="product-table">
+        <table border="1" cellpadding="10" cellspacing="0">
             <tr>
                 <th>ID</th><th>Name</th><th>Price</th><th>Description</th><th>Actions</th>
             </tr>
@@ -107,15 +105,10 @@ $products = Product::loadAllFromDB($connection);
                     <td><?= $product->getProductName(); ?></td>
                     <td>€<?= $product->getProductPrice(); ?></td>
                     <td><?= $product->getProductDesc(); ?></td>
+                    
                     <td>
-                        <a href="?edit=<?= $product->getProductID(); ?>">Edit</a>
-                        <details>
-                            <summary class="delete-summary">Delete</summary>
-                            <form method="post" action="crud.php" class="delete-form">
-                                <input type="hidden" name="delete_id" value="<?= $product->getProductID(); ?>">
-                                <button type="submit" class="confirm-delete-button">Confirm Delete</button>
-                            </form>
-                        </details>
+                        <a href="?edit=<?= $product->getProductID(); ?>">Edit</a> |
+                        <a href="?delete=<?= $product->getProductID(); ?>" onclick="return confirm('Delete this product?')">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

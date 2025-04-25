@@ -14,14 +14,8 @@
     include '../src/Core/Database/DBconnect.php';
 ?>
 
-<!-- Back Button -->
 <div class="back_button">
     <a href="index.php" class="back_button">Back</a>
-</div>
-
-<!-- Order Limit Notice -->
-<div class="order_limit_notice">
-    <strong>Note:</strong> Customers cannot order products exceeding a total of <strong>€10,000</strong>.
 </div>
 
 <section>
