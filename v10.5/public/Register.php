@@ -23,15 +23,15 @@
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
                 $user->setAge($_POST['dob']);
-    
+
                 if ($user->insertDB($connection)) {
                     header("Location: index.php");
                     exit;
                 } else {
-                    echo '<div class="error-message">Failed to create a new user.</div>';
+                    echo "Failed to create a new user.";
                 }
             } catch (Exception $e) {
-                echo '<div class="error-message">' . htmlspecialchars($e->getMessage()) . '</div>';
+                echo $e->getMessage();
             }
         }
         ?>
