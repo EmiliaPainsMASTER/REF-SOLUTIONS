@@ -9,43 +9,48 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-// Handle add/update product
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['delete_id'])) {
-        $product = Product::loadFromDB($_POST['delete_id'], $connection);
-        if ($product) {
-            $product->deleteDB($connection);
+    try {
+        if (isset($_POST['delete_id'])) {
+            $product = Product::loadFromDB($_POST['delete_id'], $connection);
+            if ($product) {
+                $product->deleteDB($connection);
+            }
+            header("Location: crud.php");
+            exit;
         }
+
+        if (!empty($_POST['product_id'])) {
+            $product = Product::loadFromDB($_POST['product_id'], $connection);
+        } else {
+            $product = new Product();
+        }
+
+        $product->setProductName($_POST['name']);
+        $product->setProductPrice($_POST['price']);
+        $product->setProductDesc($_POST['desc']);
+
+        if (!empty($_POST['image'])) {
+            $imagePath = "/img/" . trim($_POST['image']);
+            $product->setProductImage($imagePath);
+        } else {
+            throw new Exception("Image file name is required.");
+        }
+
+        if (!empty($_POST['product_id'])) {
+            $product->updateDB($connection);
+        } else {
+            $product->insertDB($connection);
+        }
+
+        header("Location: crud.php");
+        exit;
+
+    } catch (Exception $e) {
+        $_SESSION['error'] = $e->getMessage();
         header("Location: crud.php");
         exit;
     }
-
-    if (!empty($_POST['product_id'])) {
-        $product = Product::loadFromDB($_POST['product_id'], $connection);
-    } else {
-        $product = new Product();
-    }
-
-    $product->setProductName($_POST['name']);
-    $product->setProductPrice($_POST['price']);
-    $product->setProductDesc($_POST['desc']);
-
-    if (!empty($_POST['image'])) {
-        $imageName = trim($_POST['image']);
-        $imagePath = "/img/" . $imageName;
-        $product->setProductImage($imagePath);
-    } else {
-        echo "No image file.";
-    }
-
-    if (!empty($_POST['product_id'])) {
-        $product->updateDB($connection);
-    } else {
-        $product->insertDB($connection);
-    }
-
-    header("Location: crud.php");
-    exit;
 }
 
 $editProduct = null;
@@ -66,27 +71,28 @@ $products = Product::loadAllFromDB($connection);
 <body>
 <?php include '../templates/header.php'; ?>
 <section>
-    <h2 class="Admin title"Admin Manage Products</h2>
+    <h2 class="admin-title">Admin Manage Products</h2>
+
     <?php if (isset($_SESSION['error'])): ?>
-        <div class="Admin error message">
+        <div class="error-message">
             <?= htmlspecialchars($_SESSION['error']); ?>
         </div>
         <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
-    
+
     <div class="container">
         <form method="post" action="crud.php" enctype="multipart/form-data" class="product-form">
             <label for="name">Product Name:</label>
-            <input type="text" name="name" required value="<?= $editProduct ? $editProduct->getProductName() : '' ?>">
+            <input type="text" name="name" required value="<?= $editProduct ? htmlspecialchars($editProduct->getProductName()) : '' ?>">
 
             <label for="price">Price:</label>
-            <input type="number" name="price" step="0.01" required value="<?= $editProduct ? $editProduct->getProductPrice() : '' ?>">
+            <input type="number" name="price" step="0.01" required value="<?= $editProduct ? htmlspecialchars($editProduct->getProductPrice()) : '' ?>">
 
             <label for="desc">Description:</label>
-            <textarea name="desc" required><?= $editProduct ? $editProduct->getProductDesc() : '' ?></textarea>
+            <textarea name="desc" required><?= $editProduct ? htmlspecialchars($editProduct->getProductDesc()) : '' ?></textarea>
 
             <label for="image">Image File Name:</label>
-            <input type="text" name="image" placeholder="image.jpg" required value="<?= $editProduct ? basename($editProduct->getProductImage()) : '' ?>">
+            <input type="text" name="image" placeholder="image.jpg" required value="<?= $editProduct ? htmlspecialchars(basename($editProduct->getProductImage())) : '' ?>">
 
             <?php if ($editProduct): ?>
                 <input type="hidden" name="product_id" value="<?= $editProduct->getProductID(); ?>">
@@ -104,9 +110,9 @@ $products = Product::loadAllFromDB($connection);
             <?php foreach ($products as $product): ?>
                 <tr>
                     <td><?= $product->getProductID(); ?></td>
-                    <td><?= $product->getProductName(); ?></td>
-                    <td>€<?= $product->getProductPrice(); ?></td>
-                    <td><?= $product->getProductDesc(); ?></td>
+                    <td><?= htmlspecialchars($product->getProductName()); ?></td>
+                    <td>€<?= htmlspecialchars($product->getProductPrice()); ?></td>
+                    <td><?= htmlspecialchars($product->getProductDesc()); ?></td>
                     <td>
                         <a href="?edit=<?= $product->getProductID(); ?>">Edit</a>
                         <details>
