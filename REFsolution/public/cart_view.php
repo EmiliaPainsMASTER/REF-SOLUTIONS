@@ -7,6 +7,11 @@ require_once '../templates/header.php';
 <link rel="stylesheet" href="assets/css/main.css">
 <section class="cart-container">
     <h2>Your Shopping Cart</h2>
+
+    <!-- Order Limit Notice -->
+    <div class="order_limit_notice">
+        <strong>Note:</strong> Customers cannot order products exceeding a total of <strong>€10,000</strong>.
+    </div>
     
     <?php if (isset($_SESSION['message'])): ?>
         <div class="message"><?= $_SESSION['message'] ?></div>
