@@ -5,7 +5,7 @@ html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f8f9fa;
+  background-color: white;
 }
 body {
   height: 100%;
@@ -134,7 +134,6 @@ input, select, textarea, td {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease-in-out;
 }
 
 .productdisplay:hover {
@@ -170,7 +169,6 @@ input, select, textarea, td {
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s;
 }
 
 .productdisplay button:hover {
@@ -178,8 +176,7 @@ input, select, textarea, td {
 }
 
 
-/* Cart styles */
-/* Cart specific styles */
+/* Cart */
 .cart-container {
     max-width: 1200px;
     margin: 20px auto;
@@ -201,7 +198,7 @@ input, select, textarea, td {
 }
 
 .cart-container th {
-    background-color: #f8f8f8;
+    background-color: white;
     font-weight: bold;
 }
 
@@ -226,12 +223,12 @@ input, select, textarea, td {
 }
 
 .update-btn {
-    background-color: #4CAF50;
+    background-color: forestgreen;
     color: white;
 }
 
 .remove-btn {
-    background-color: #f44336;
+    background-color: red;
     color: white;
 }
 
@@ -249,7 +246,7 @@ input, select, textarea, td {
 }
 
 .continue-btn {
-    background-color: #2196F3;
+    background-color: cadetblue;
     color: white;
 }
 
@@ -295,7 +292,7 @@ input, select, textarea, td {
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 60px; /* adjust depending on header height */
+  top: 60px;
   left: 10px;
   background-color: #333;
   border: 1px solid #ccc;
@@ -311,7 +308,6 @@ input, select, textarea, td {
   white-space: nowrap;
 }
 
-/* Show menu when checkbox is checked */
 .hamburger-checkbox:checked + .hamburger + .hamburger-menu {
   display: flex;
 }

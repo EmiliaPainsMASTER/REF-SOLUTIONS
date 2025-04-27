@@ -66,7 +66,7 @@ $products = Product::loadAllFromDB($connection);
 <body>
 <?php include '../templates/header.php'; ?>
 <section>
-    <h2 class="Admin title"Admin Manage Products</h2>
+    <h2 class="Admin title">Admin Manage Products</h2>
     <?php if (isset($_SESSION['error'])): ?>
         <div class="Admin error message">
             <?= htmlspecialchars($_SESSION['error']); ?>

@@ -15,19 +15,6 @@ require_once '../templates/header.php';
     
     <?php 
     
-    if (!empty($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $productId => $item) {
-            if (is_object($item['product']) && get_class($item['product']) === '__PHP_Incomplete_Class') {
-                $_SESSION['cart'][$productId]['product'] = [
-                    'id' => $item['product']->productID,
-                    'name' => $item['product']->productName,
-                    'price' => $item['product']->productPrice,
-                    'image' => $item['product']->productImage,
-                    'desc' => $item['product']->productDesc
-                ];
-            }
-        }
-    }
     
     if (empty($_SESSION['cart'])): ?>
         <p>Your cart is empty</p>
@@ -71,11 +58,9 @@ require_once '../templates/header.php';
                 <tr>
                     <td>
                         <?= htmlspecialchars($product['name']) ?>
-                        <?php if (!empty($product['image'])): ?>
-                            <img src="../public/assets<?= htmlspecialchars($product['image']) ?>" alt="Product Image" class="cart-thumbnail">
-                        <?php endif; ?>
+                        
                     </td>
-                    <td>€<?= number_format($product['price'], 2) ?></td>
+                    <td>€<?= $product['price'] ?></td>
                     <td>
                         <form method="post" action="cart.php">
                             <input type="hidden" name="product_id" value="<?= $productId ?>">
@@ -84,7 +69,7 @@ require_once '../templates/header.php';
                             <button type="submit" class="update-btn">Update</button>
                         </form>
                     </td>
-                    <td>€<?= number_format($total, 2) ?></td>
+                    <td>€<?= $total ?></td>
                     <td>
                         <form method="post" action="cart.php">
                             <input type="hidden" name="product_id" value="<?= $productId ?>">
@@ -98,7 +83,7 @@ require_once '../templates/header.php';
             <tfoot>
                 <tr>
                     <td colspan="3"><strong>Grand Total</strong></td>
-                    <td colspan="2">€<?= number_format($grandTotal, 2) ?></td>
+                    <td colspan="2">€<?=$grandTotal ?></td>
                 </tr>
             </tfoot>
         </table>
