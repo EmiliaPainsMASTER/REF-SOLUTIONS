@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 27, 2025 at 01:09 AM
+-- Generation Time: Apr 28, 2025 at 12:09 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.1.10
 
@@ -200,7 +200,8 @@ CREATE TABLE `sell` (
 INSERT INTO `sell` (`id`, `seller_name`, `email`, `item_name`, `quantity`, `eircode`, `country`) VALUES
 (1, 'ron', 'rob@gmail.com', 'HP laptop', 2, 'adafc', 'Ireland'),
 (2, 'Ruben', 'dfg@thg.com', 'GPU', 3, 'fcs ', 'UK'),
-(3, 'sff', 'fr@gmai.com', 'gfxd', 4, 'uik', 'Ireland');
+(3, 'sff', 'fr@gmai.com', 'gfxd', 4, 'uik', 'Ireland'),
+(4, 'Leo', 'leo@gmail.com', 'mouse', 5, 'kfrg4g', 'Ireland');
 
 -- --------------------------------------------------------
 
@@ -213,7 +214,7 @@ CREATE TABLE `user` (
   `Email` varchar(50) NOT NULL,
   `FName` varchar(40) NOT NULL,
   `SName` varchar(40) NOT NULL,
-  `Password` varchar(20) NOT NULL,
+  `Password` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Age` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -225,7 +226,8 @@ INSERT INTO `user` (`userID`, `Email`, `FName`, `SName`, `Password`, `Age`) VALU
 (1, 'SteveJobs@myspace.com', 'Steve', 'Jobs', 'password', '2000-10-05'),
 (4, 'Emiliapains2001@gmail.com', 'Daniel', 'H', 'Emiliaa16', '2001-02-18'),
 (5, 'Emiliapains2001@gmail.com', 'D', 'HJ', 'eMILIAA16', '2001-02-18'),
-(6, 'rob@gmail.com', 'rob', 'hob', '12', '2025-04-04');
+(6, 'rob@gmail.com', 'rob', 'hob', '12', '2025-04-04'),
+(9, 'pen@gamil.com', 'pen', 'grnq', 'Password07!', '2000-07-14');
 
 --
 -- Indexes for dumped tables
@@ -295,13 +297,13 @@ ALTER TABLE `purchases`
 -- AUTO_INCREMENT for table `sell`
 --
 ALTER TABLE `sell`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

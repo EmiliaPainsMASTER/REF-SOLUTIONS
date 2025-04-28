@@ -14,7 +14,13 @@
     include '../templates/header.php' ?>
 <section>
     <h1>About Us</h1>
-    <p>We are REF Solutions a company created for technophiles and enthusiasts alike, presently we sell servers that allow our uses to host web, email, file, and game servers</p>
+    <p>         We believe technology should be exciting, reliable, and easy to access. We provide everything from smartphones, laptops, and tablets, to accessories, and a wide-range of high-quality electronics.
+
+    <p>We want to bring you the latest technology at a price you would pay, while not sacrificing quality or service.
+</p>
+   
+ 
+
 </section>
 <?php include '../templates/footer.php' ?>
 </body>

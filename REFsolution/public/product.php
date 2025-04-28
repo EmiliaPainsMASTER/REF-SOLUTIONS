@@ -18,10 +18,6 @@
     <a href="index.php" class="back_button">Back</a>
 </div>
 
-<!-- Order Limit Notice -->
-<div class="order_limit_notice">
-    <strong>Note:</strong> Customers cannot order products exceeding a total of <strong>€10,000</strong>.
-</div>
 
 <section>
     <div class="contain_product">
@@ -42,7 +38,7 @@
                 $products[] = Product::getProductsClassObject($row);
             }
 
-            echo "Showing products for brand: " . $brand . "</h2>";
+            echo $brand . " Brand";
 
         } else {
             // Load all products

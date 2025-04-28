@@ -107,7 +107,7 @@ class User
             throw new InvalidArgumentException("Password must be at least 8 characters");
         }
 
-        $this->Password = password_hash($password, PASSWORD_DEFAULT);
+        $this->Password = $password;
         
         unset($password);
     }
