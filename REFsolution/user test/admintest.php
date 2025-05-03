@@ -2,7 +2,6 @@
 require_once '../src/Models/Admin.php';
 ?>
 <body>
-<h2>Admin Test</h2>
 
 <?php
     //creating admin
@@ -13,14 +12,14 @@ require_once '../src/Models/Admin.php';
     $admin->setAdminPassword("password");
 
     //printing
-    echo "<h3>Admin Info</h3>";
+    echo "<h3>Admin</h3>";
     echo "<p>Admin name: ".$admin->getAdminname()."</p>";
     echo "<p>Email: ".$admin->getAdminEmail()."</p>";
-    echo "<p>password: ".$admin->getAdminPassword()."</p>";
-
+    echo "<p>Password: ".$admin->getAdminPassword()."</p>";
+    
     //updating admin
     $admin->setAdminname("admin2");
-    $admin->setAdminEmail("admin2@.com");
+    $admin->setAdminEmail("ADMIN2@.com");
 
     //printing
     echo "<h3>Updated Admin</h3>";

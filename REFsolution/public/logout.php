@@ -1,6 +1,5 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
-header("Location: index.php"); 
+require_once '../src/Core/Utilities/session.php';
+$session = new session();
+$session->forgetSession();
 exit;
