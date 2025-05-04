@@ -47,7 +47,7 @@ INSERT INTO `products` (`ProductID`, `Price`, `Image`, `ProductName`, `ProductDe
 	(1, 2499.99, '/img/cisco_ucs.jpg', 'Cisco UCS', 'Cisco product'),
 	(2, 1299.99, '/img/hpe_proliant.jpg', 'HPE ProLiant Series', 'Versatile, manageable, and robust. Suitable for various workloads and environments.'),
 	(3, 1500, '/img/dell_poweredge.jpg', 'Dell Poweredge', 'It\'s a Dell!'),
-	(4, 800, '/img/ibm.jpg', 'IBM Power Systems', 'International British Machine'),
+	(4, 4000, '/img/ibm.jpg', 'IBM Power Systems', 'International British Machine'),
 	(5, 999.51, '/img/lenovo_thinksystem.jpg', 'Lenovo Thinksystem', 'This server thinks? I think?'),
 	(6, 310, '/img/hp1.jpeg', 'HP 15 Silver Fusion 15.6', 'HP 15 Silver Fusion 15.6 Touchscreen Laptop, Intel Core i3-8130U, 1TB HDD 16GB Intel Optane Memory.'),
 	(7, 2199, '/img/Asus1.png', 'Asus zenbook 14', 'ASUS Zenbook 14 OLED.it is powered by Intel® Core™ Ultra 7 Processor and Intel Arc™ Graphics.'),
